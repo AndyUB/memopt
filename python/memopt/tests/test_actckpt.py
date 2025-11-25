@@ -2,8 +2,9 @@ import torch
 from typing import Any, Mapping
 
 from memopt.actckpt import checkpoint
+from memopt.model.config import DEFAULT_ADAMW_ARGS, MLP_TINY as MLP_ARGS
 from memopt.model.mlp import MLP
-from memopt.model.optimizer import DEFAULT_ADAMW_ARGS, AdamW
+from memopt.model.optimizer import AdamW
 from memopt.util import (
     MemoryStats,
     measure_peak_memory,
@@ -11,10 +12,6 @@ from memopt.util import (
     start_memory_tracing,
     stop_memory_tracing,
 )
-
-INPUT_DIM = 10
-HIDDEN_DIM = 20
-OUTPUT_DIM = 5
 
 
 def train_mlp(
@@ -25,14 +22,13 @@ def train_mlp(
 ) -> dict[str, Any]:
     start_memory_tracing()
 
-    model = MLP(INPUT_DIM, HIDDEN_DIM, OUTPUT_DIM, device=device).to(device)
+    model = MLP(device=device, **MLP_ARGS).to(device)
     model.load_state_dict(model_states)
     optimizer = AdamW(model.parameters(), **DEFAULT_ADAMW_ARGS)
     input = input.to(device)
 
     pre_fwd_mem = measure_peak_memory(device)
     if use_checkpoint:
-        input.requires_grad_()
         output = checkpoint(model, input)
     else:
         output = model(input)
@@ -66,10 +62,8 @@ def test_mlp_actckpt():
     set_seed()
 
     batch_size = 4
-    input = torch.randn(batch_size, INPUT_DIM)
-    state_dict = MLP(
-        INPUT_DIM, HIDDEN_DIM, OUTPUT_DIM, device=torch.device("cpu")
-    ).state_dict()
+    input = torch.randn(batch_size, MLP_ARGS["input_dim"])
+    state_dict = MLP(device=torch.device("cpu"), **MLP_ARGS).state_dict()
 
     result = train_mlp(state_dict, input, torch.device("cuda:0"), False)
     result_ckpt = train_mlp(state_dict, input, torch.device("cuda:1"), True)

@@ -10,6 +10,7 @@ class CheckpointFunction(torch.autograd.Function):
         *args: torch.Tensor,
     ) -> Any:
         ctx.run_function = run_function
+        args = args[1:]  # first arg is dummy
         ctx.save_for_backward(*args)
         with torch.no_grad():
             outputs = run_function(*args)
@@ -31,11 +32,13 @@ class CheckpointFunction(torch.autograd.Function):
 
         torch.autograd.backward(outputs, grad_outputs)
         grads = tuple(inp.grad for inp in detached_inputs)
-        return (None, *grads)  # None for run_function
+        return (None, None, *grads)  # None for run_function, dummy arg
 
 
 def checkpoint(
     run_function: Callable,
     *args: torch.Tensor,
 ) -> Any:
+    dummy = torch.empty((0,), requires_grad=True)
+    args = (dummy, *args)
     return CheckpointFunction.apply(run_function, *args)

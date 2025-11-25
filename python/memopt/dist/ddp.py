@@ -128,6 +128,7 @@ class DDPBucketed(torch.nn.Module):
         self.optimize_singleton_buckets = (
             os.getenv("DDP_OPTIMIZE_SINGLETON_BUCKETS", "0") == "1"
         )
+        # TODO: always enable this optimization after verifying correctness
         if self.optimize_singleton_buckets:
             print("[Info] Singleton bucket optimization is enabled.")
 
