@@ -1,0 +1,10 @@
+2025-11-24 17:34:36,891 __main__ INFO Test MLP activation checkpointing: args={'input_dim': 10, 'hidden_dim': 20, 'output_dim': 5}, batch_size=4
+2025-11-24 17:34:38,416 __main__ INFO (MLP) No checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=2048, curr_reserved_bytes=2097152, max_allocated_bytes=2048, max_reserved_bytes=2097152)
+2025-11-24 17:34:38,416 __main__ INFO (MLP) Checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=2048, curr_reserved_bytes=2097152, max_allocated_bytes=2048, max_reserved_bytes=2097152)
+2025-11-24 17:34:38,416 __main__ INFO (MLP) No checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=8523264, curr_reserved_bytes=23068672, max_allocated_bytes=8523264, max_reserved_bytes=23068672)
+2025-11-24 17:34:38,416 __main__ INFO (MLP) Checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=8522752, curr_reserved_bytes=23068672, max_allocated_bytes=8522752, max_reserved_bytes=23068672)
+2025-11-24 17:34:38,417 __main__ INFO Test Transformer activation checkpointing: args={'vocab_size': 50257, 'num_layers': 36, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}, batch_size=4, seq_len=256
+2025-11-24 17:34:59,106 __main__ INFO (Transformer) No checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=4421965312, curr_reserved_bytes=4490002432, max_allocated_bytes=4421965312, max_reserved_bytes=4490002432)
+2025-11-24 17:34:59,106 __main__ INFO (Transformer) Checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=4421965312, curr_reserved_bytes=4490002432, max_allocated_bytes=4421965312, max_reserved_bytes=4490002432)
+2025-11-24 17:34:59,106 __main__ INFO (Transformer) No checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=12037896192, curr_reserved_bytes=12343836672, max_allocated_bytes=12243765248, max_reserved_bytes=12343836672)
+2025-11-24 17:34:59,106 __main__ INFO (Transformer) Checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=5038159872, curr_reserved_bytes=5427429376, max_allocated_bytes=5244028928, max_reserved_bytes=5427429376)
