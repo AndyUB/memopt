@@ -28,7 +28,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def train_mlp(
+def train_mlp_ckpt(
     model_states: Mapping[str, Any],
     input: torch.Tensor,
     device: torch.device,
@@ -81,8 +81,8 @@ def test_mlp_actckpt():
     input = torch.randn(batch_size, MLP_ARGS["input_dim"])
     state_dict = MLP(device=torch.device("cpu"), **MLP_ARGS).state_dict()
 
-    result = train_mlp(state_dict, input, torch.device("cuda:0"), False)
-    result_ckpt = train_mlp(state_dict, input, torch.device("cuda:1"), True)
+    result = train_mlp_ckpt(state_dict, input, torch.device("cuda:0"), False)
+    result_ckpt = train_mlp_ckpt(state_dict, input, torch.device("cuda:1"), True)
 
     assert torch.allclose(
         result["output"], result_ckpt["output"]
@@ -112,7 +112,7 @@ def test_mlp_actckpt():
     logger.info(f"(MLP) Checkpointing - post-forward memory: {post_fwd_mem_ckpt}")
 
 
-def train_transformer(
+def train_transformer_ckpt(
     model_states: Mapping[str, Any],
     batch: torch.Tensor,
     device: torch.device,
@@ -174,8 +174,10 @@ def test_transformer_actckpt():
         device=torch.device("cpu"), **TRANSFORMER_LARGE
     ).state_dict()
 
-    result = train_transformer(state_dict, batch, torch.device("cuda:0"), False)
-    result_ckpt = train_transformer(state_dict, batch, torch.device("cuda:1"), True)
+    result = train_transformer_ckpt(state_dict, batch, torch.device("cuda:0"), False)
+    result_ckpt = train_transformer_ckpt(
+        state_dict, batch, torch.device("cuda:1"), True
+    )
 
     for name in result["model_state"]:
         assert torch.allclose(

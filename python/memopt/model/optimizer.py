@@ -38,6 +38,7 @@ class AdamW(torch.optim.Optimizer):
         betas: tuple[float, float],
         eps: float,
         weight_decay: float,
+        dtype: torch.dtype | None = None,
     ):
         """Initialize the AdamW optimizer.
 
@@ -47,6 +48,7 @@ class AdamW(torch.optim.Optimizer):
             betas ((float, float)): beta1 and beta2 coefficients.
             eps (float): Small constant for numerical stability.
             weight_decay (float): Weight decay coefficient.
+            dtype (torch.dtype | None): Data type for the optimizer states.
         """
 
         defaults = {
@@ -54,6 +56,7 @@ class AdamW(torch.optim.Optimizer):
             "betas": betas,
             "eps": eps,
             "weight_decay": weight_decay,
+            "dtype": dtype,
         }
         super().__init__(params, defaults)
 
@@ -69,6 +72,7 @@ class AdamW(torch.optim.Optimizer):
             eps = group["eps"]
             beta1, beta2 = group["betas"]
             weight_decay = group["weight_decay"]
+            dtype = group["dtype"]
 
             for p in group["params"]:
                 p: torch.Tensor
@@ -79,9 +83,8 @@ class AdamW(torch.optim.Optimizer):
                 state = self.state[p]
                 if len(state) == 0:
                     state["t"] = 0
-                    state["m"] = torch.zeros_like(p)
-                    state["v"] = torch.zeros_like(p)
-
+                    state["m"] = torch.zeros_like(p, dtype=dtype)
+                    state["v"] = torch.zeros_like(p, dtype=dtype)
                 m: torch.Tensor = state["m"]
                 v: torch.Tensor = state["v"]
                 state["t"] += 1
