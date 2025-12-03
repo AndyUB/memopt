@@ -40,19 +40,20 @@ def test_sequential_model(
         nn.Linear(128, 64),
         nn.ReLU(),
         nn.Linear(64, 1),
-    ).to(device)
+    )
 
     mp_trainer = MixedPrecisionTrainer(
         model=model,
         lower_precision_dtype=lower_precision_dtype,
+        device=device,
         use_master_copy=use_master_copy,
         loss_scale=loss_scale,
         use_autocast=use_autocast,
     )
 
     set_seed()
-    x = torch.randn(32, 10).to(device)
-    y = torch.randn(32, 1).to(device)
+    x = torch.randn(32, 10)
+    y = torch.randn(32, 1)
 
     for step in range(5):
         x, y = mp_trainer.cast_inputs(x, y)

@@ -1,10 +1,648 @@
-2025-11-24 17:34:36,891 __main__ INFO Test MLP activation checkpointing: args={'input_dim': 10, 'hidden_dim': 20, 'output_dim': 5}, batch_size=4
-2025-11-24 17:34:38,416 __main__ INFO (MLP) No checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=2048, curr_reserved_bytes=2097152, max_allocated_bytes=2048, max_reserved_bytes=2097152)
-2025-11-24 17:34:38,416 __main__ INFO (MLP) Checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=2048, curr_reserved_bytes=2097152, max_allocated_bytes=2048, max_reserved_bytes=2097152)
-2025-11-24 17:34:38,416 __main__ INFO (MLP) No checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=8523264, curr_reserved_bytes=23068672, max_allocated_bytes=8523264, max_reserved_bytes=23068672)
-2025-11-24 17:34:38,416 __main__ INFO (MLP) Checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=8522752, curr_reserved_bytes=23068672, max_allocated_bytes=8522752, max_reserved_bytes=23068672)
-2025-11-24 17:34:38,417 __main__ INFO Test Transformer activation checkpointing: args={'vocab_size': 50257, 'num_layers': 36, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}, batch_size=4, seq_len=256
-2025-11-24 17:34:59,106 __main__ INFO (Transformer) No checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=4421965312, curr_reserved_bytes=4490002432, max_allocated_bytes=4421965312, max_reserved_bytes=4490002432)
-2025-11-24 17:34:59,106 __main__ INFO (Transformer) Checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=4421965312, curr_reserved_bytes=4490002432, max_allocated_bytes=4421965312, max_reserved_bytes=4490002432)
-2025-11-24 17:34:59,106 __main__ INFO (Transformer) No checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=12037896192, curr_reserved_bytes=12343836672, max_allocated_bytes=12243765248, max_reserved_bytes=12343836672)
-2025-11-24 17:34:59,106 __main__ INFO (Transformer) Checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=5038159872, curr_reserved_bytes=5427429376, max_allocated_bytes=5244028928, max_reserved_bytes=5427429376)
+2025-12-03 13:30:14,857 __main__ INFO === Test MLP ===
+2025-12-03 13:30:14,857 __main__ INFO Test MLP activation checkpointing: args={'input_dim': 10, 'hidden_dim': 20, 'output_dim': 5}, batch_size=4
+2025-12-03 13:30:16,454 __main__ INFO (MLP) No checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=2048, curr_reserved_bytes=2097152, max_allocated_bytes=2048, max_reserved_bytes=2097152)
+2025-12-03 13:30:16,454 __main__ INFO (MLP) Checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=2048, curr_reserved_bytes=2097152, max_allocated_bytes=2048, max_reserved_bytes=2097152)
+2025-12-03 13:30:16,454 __main__ INFO (MLP) No checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=8523264, curr_reserved_bytes=23068672, max_allocated_bytes=8523264, max_reserved_bytes=23068672)
+2025-12-03 13:30:16,454 __main__ INFO (MLP) Checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=8522752, curr_reserved_bytes=23068672, max_allocated_bytes=8522752, max_reserved_bytes=23068672)
+2025-12-03 13:30:16,455 __main__ INFO === Test BlockwiseCheckpointedTransformer ===
+2025-12-03 13:30:16,455 __main__ INFO Test Transformer activation checkpointing: args={'vocab_size': 50257, 'num_layers': 36, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}, batch_size=4, seq_len=256, transformer_cls=BlockwiseCheckpointedTransformer
+2025-12-03 13:30:37,688 __main__ INFO (Transformer) No checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=4421965312, curr_reserved_bytes=4490002432, max_allocated_bytes=4421965312, max_reserved_bytes=4490002432)
+2025-12-03 13:30:37,689 __main__ INFO (Transformer) Checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=4421965312, curr_reserved_bytes=4490002432, max_allocated_bytes=4421965312, max_reserved_bytes=4490002432)
+2025-12-03 13:30:37,689 __main__ INFO (Transformer) No checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=12037896192, curr_reserved_bytes=12343836672, max_allocated_bytes=12243765248, max_reserved_bytes=12343836672)
+2025-12-03 13:30:37,689 __main__ INFO (Transformer) Checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=5038159872, curr_reserved_bytes=5427429376, max_allocated_bytes=5244028928, max_reserved_bytes=5427429376)
+2025-12-03 13:30:39,029 __main__ INFO === Test AttnCheckpointedTransformer ===
+2025-12-03 13:30:39,029 __main__ INFO Test Transformer activation checkpointing: args={'vocab_size': 50257, 'num_layers': 36, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}, batch_size=4, seq_len=256, transformer_cls=AttnCheckpointedTransformer
+2025-12-03 13:30:58,461 __main__ INFO (Transformer) No checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=4421965312, curr_reserved_bytes=23265804288, max_allocated_bytes=18556126208, max_reserved_bytes=23265804288)
+2025-12-03 13:30:58,461 __main__ INFO (Transformer) Checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=4421965312, curr_reserved_bytes=18998099968, max_allocated_bytes=18628477952, max_reserved_bytes=18998099968)
+2025-12-03 13:30:58,461 __main__ INFO (Transformer) No checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=12037896192, curr_reserved_bytes=23265804288, max_allocated_bytes=12243765248, max_reserved_bytes=23265804288)
+2025-12-03 13:30:58,461 __main__ INFO (Transformer) Checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=9495803904, curr_reserved_bytes=18998099968, max_allocated_bytes=9701672960, max_reserved_bytes=18998099968)
+2025-12-03 13:30:58,627 __main__ INFO === Test FFNCheckpointedTransformer ===
+2025-12-03 13:30:58,627 __main__ INFO Test Transformer activation checkpointing: args={'vocab_size': 50257, 'num_layers': 36, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}, batch_size=4, seq_len=256, transformer_cls=FFNCheckpointedTransformer
+2025-12-03 13:31:12,516 __main__ INFO (Transformer) No checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=4421965312, curr_reserved_bytes=23265804288, max_allocated_bytes=18558223360, max_reserved_bytes=23265804288)
+2025-12-03 13:31:12,516 __main__ INFO (Transformer) Checkpointing - pre-forward memory: MemoryStats(curr_allocated_bytes=4421965312, curr_reserved_bytes=19000197120, max_allocated_bytes=18631623680, max_reserved_bytes=19000197120)
+2025-12-03 13:31:12,516 __main__ INFO (Transformer) No checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=12037896192, curr_reserved_bytes=23265804288, max_allocated_bytes=12243765248, max_reserved_bytes=23265804288)
+2025-12-03 13:31:12,516 __main__ INFO (Transformer) Checkpointing - post-forward memory: MemoryStats(curr_allocated_bytes=7964030976, curr_reserved_bytes=19014877184, max_allocated_bytes=8169900032, max_reserved_bytes=19014877184)
+2025-12-03 13:31:12,795 __main__ INFO === Time Transformer ===
+2025-12-03 13:31:12,795 __main__ INFO Time Transformer activation checkpointing: args={'vocab_size': 50257, 'num_layers': 36, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}, batch_size=4, seq_len=256, transformer_cls=Transformer
+2025-12-03 13:31:26,376 memopt.util INFO {
+    "zero_grad": {
+        "avg": 0.7765984117984772,
+        "std": 0.03251760203249082,
+        "pct": 0.09282156193649929
+    },
+    "forward": {
+        "avg": 113.4545883178711,
+        "std": 1.8336315782505959,
+        "pct": 13.55928940562097
+    },
+    "loss": {
+        "avg": 4.1934816360473635,
+        "std": 0.3267377525307677,
+        "pct": 0.5012098662478827
+    },
+    "backward": {
+        "avg": 451.7257049560547,
+        "std": 0.8879821586093658,
+        "pct": 53.98840423044281
+    },
+    "step": {
+        "avg": 266.5609130859375,
+        "std": 0.288837641493962,
+        "pct": 31.858275056208846
+    },
+    "total": {
+        "avg": 836.7112854003906,
+        "std": 1.430565202975387,
+        "pct": 100.0
+    }
+}
+2025-12-03 13:31:26,376 memopt.util INFO [
+  {
+    "zero_grad": 0.2287999987602234,
+    "forward": 125.02102661132812,
+    "loss": 0.7535359859466553,
+    "backward": 453.68133544921875,
+    "step": 283.8700256347656,
+    "total": 863.5547485351562
+  },
+  {
+    "zero_grad": 0.656544029712677,
+    "forward": 114.35785675048828,
+    "loss": 5.314176082611084,
+    "backward": 450.4719543457031,
+    "step": 266.2890625,
+    "total": 837.089599609375
+  },
+  {
+    "zero_grad": 0.8264319896697998,
+    "forward": 114.32838439941406,
+    "loss": 3.9150400161743164,
+    "backward": 469.3953552246094,
+    "step": 247.48048400878906,
+    "total": 835.9456787109375
+  },
+  {
+    "zero_grad": 0.7916160225868225,
+    "forward": 114.03910064697266,
+    "loss": 4.5399041175842285,
+    "backward": 449.283203125,
+    "step": 266.192138671875,
+    "total": 834.845947265625
+  },
+  {
+    "zero_grad": 0.8171839714050293,
+    "forward": 113.6960678100586,
+    "loss": 4.512159824371338,
+    "backward": 450.3588562011719,
+    "step": 266.5743103027344,
+    "total": 835.9585571289062
+  },
+  {
+    "zero_grad": 0.7983360290527344,
+    "forward": 113.92736053466797,
+    "loss": 4.586751937866211,
+    "backward": 450.01593017578125,
+    "step": 266.46661376953125,
+    "total": 835.7949829101562
+  },
+  {
+    "zero_grad": 0.7560319900512695,
+    "forward": 113.7380142211914,
+    "loss": 4.13369607925415,
+    "backward": 451.7321472167969,
+    "step": 266.02215576171875,
+    "total": 836.3820190429688
+  },
+  {
+    "zero_grad": 0.7787520289421082,
+    "forward": 114.37248229980469,
+    "loss": 4.2591681480407715,
+    "backward": 450.92608642578125,
+    "step": 266.61773681640625,
+    "total": 836.9542236328125
+  },
+  {
+    "zero_grad": 0.7427840232849121,
+    "forward": 113.51324462890625,
+    "loss": 3.650207996368408,
+    "backward": 452.4798278808594,
+    "step": 266.34503173828125,
+    "total": 836.7310791015625
+  },
+  {
+    "zero_grad": 0.8629760146141052,
+    "forward": 108.02642822265625,
+    "loss": 4.346720218658447,
+    "backward": 452.7906188964844,
+    "step": 266.9727478027344,
+    "total": 832.99951171875
+  },
+  {
+    "zero_grad": 0.7629759907722473,
+    "forward": 113.86553955078125,
+    "loss": 4.325535774230957,
+    "backward": 451.2790832519531,
+    "step": 266.6306457519531,
+    "total": 836.86376953125
+  },
+  {
+    "zero_grad": 0.7799360156059265,
+    "forward": 114.4760971069336,
+    "loss": 4.647424221038818,
+    "backward": 450.8952331542969,
+    "step": 266.5329284667969,
+    "total": 837.3316040039062
+  },
+  {
+    "zero_grad": 0.7718719840049744,
+    "forward": 114.14720153808594,
+    "loss": 4.251039981842041,
+    "backward": 451.8976135253906,
+    "step": 266.6698913574219,
+    "total": 837.7376098632812
+  },
+  {
+    "zero_grad": 0.7588800191879272,
+    "forward": 114.44255828857422,
+    "loss": 4.1378560066223145,
+    "backward": 452.3961181640625,
+    "step": 266.3070373535156,
+    "total": 838.04248046875
+  },
+  {
+    "zero_grad": 0.7534400224685669,
+    "forward": 114.03695678710938,
+    "loss": 3.5964159965515137,
+    "backward": 452.8443908691406,
+    "step": 267.0443420410156,
+    "total": 838.2755737304688
+  }
+]
+2025-12-03 13:31:26,384 __main__ INFO === Time BlockwiseCheckpointedTransformer ===
+2025-12-03 13:31:26,384 __main__ INFO Time Transformer activation checkpointing: args={'vocab_size': 50257, 'num_layers': 36, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}, batch_size=4, seq_len=256, transformer_cls=BlockwiseCheckpointedTransformer
+2025-12-03 13:31:42,966 memopt.util INFO {
+    "zero_grad": {
+        "avg": 0.5099232047796249,
+        "std": 0.01635733271839909,
+        "pct": 0.049141112625382566
+    },
+    "forward": {
+        "avg": 114.46193237304688,
+        "std": 0.1876662701817277,
+        "pct": 11.030469135738352
+    },
+    "loss": {
+        "avg": 0.8612000048160553,
+        "std": 0.010157663582672321,
+        "pct": 0.08299222011472113
+    },
+    "backward": {
+        "avg": 651.950537109375,
+        "std": 1.534041869774096,
+        "pct": 62.826936588614196
+    },
+    "step": {
+        "avg": 269.9079833984375,
+        "std": 0.3427889499251588,
+        "pct": 26.010458489194377
+    },
+    "total": {
+        "avg": 1037.6916015625,
+        "std": 1.751793491741507,
+        "pct": 100.0
+    }
+}
+2025-12-03 13:31:42,969 memopt.util INFO [
+  {
+    "zero_grad": 0.1592320054769516,
+    "forward": 114.94441223144531,
+    "loss": 0.7910079956054688,
+    "backward": 652.0272827148438,
+    "step": 287.1860656738281,
+    "total": 1055.1080322265625
+  },
+  {
+    "zero_grad": 0.7221119999885559,
+    "forward": 114.91590118408203,
+    "loss": 0.9037119746208191,
+    "backward": 651.2462158203125,
+    "step": 269.5622863769531,
+    "total": 1037.3502197265625
+  },
+  {
+    "zero_grad": 0.5228480100631714,
+    "forward": 114.4991683959961,
+    "loss": 0.901311993598938,
+    "backward": 650.6810302734375,
+    "step": 269.52392578125,
+    "total": 1036.1282958984375
+  },
+  {
+    "zero_grad": 0.5065280199050903,
+    "forward": 114.38082885742188,
+    "loss": 0.8776320219039917,
+    "backward": 649.9730224609375,
+    "step": 269.8107604980469,
+    "total": 1035.548828125
+  },
+  {
+    "zero_grad": 0.8128640055656433,
+    "forward": 114.60169219970703,
+    "loss": 0.857375979423523,
+    "backward": 650.2525024414062,
+    "step": 269.7201843261719,
+    "total": 1036.24462890625
+  },
+  {
+    "zero_grad": 0.5419520139694214,
+    "forward": 114.2672348022461,
+    "loss": 0.8658879995346069,
+    "backward": 650.2028198242188,
+    "step": 269.8514099121094,
+    "total": 1035.7293701171875
+  },
+  {
+    "zero_grad": 0.532800018787384,
+    "forward": 114.93280029296875,
+    "loss": 0.8667200207710266,
+    "backward": 650.5940551757812,
+    "step": 269.683349609375,
+    "total": 1036.6097412109375
+  },
+  {
+    "zero_grad": 0.4956800043582916,
+    "forward": 114.2597427368164,
+    "loss": 0.8432319760322571,
+    "backward": 650.2575073242188,
+    "step": 269.88226318359375,
+    "total": 1035.7384033203125
+  },
+  {
+    "zero_grad": 0.5136640071868896,
+    "forward": 114.39949035644531,
+    "loss": 0.8558400273323059,
+    "backward": 650.3219604492188,
+    "step": 269.76416015625,
+    "total": 1035.8551025390625
+  },
+  {
+    "zero_grad": 0.49302399158477783,
+    "forward": 114.52921295166016,
+    "loss": 0.8792960047721863,
+    "backward": 650.9519653320312,
+    "step": 269.0718688964844,
+    "total": 1035.9254150390625
+  },
+  {
+    "zero_grad": 0.4983679950237274,
+    "forward": 114.42272186279297,
+    "loss": 0.8574399948120117,
+    "backward": 653.0569458007812,
+    "step": 270.12457275390625,
+    "total": 1038.9600830078125
+  },
+  {
+    "zero_grad": 0.5226879715919495,
+    "forward": 114.53868865966797,
+    "loss": 0.8666239976882935,
+    "backward": 652.7637939453125,
+    "step": 270.4002380371094,
+    "total": 1039.092041015625
+  },
+  {
+    "zero_grad": 0.5015680193901062,
+    "forward": 114.48274993896484,
+    "loss": 0.8689280152320862,
+    "backward": 653.846435546875,
+    "step": 270.08837890625,
+    "total": 1039.7880859375
+  },
+  {
+    "zero_grad": 0.4947200119495392,
+    "forward": 114.50732421875,
+    "loss": 0.8471680283546448,
+    "backward": 653.4992065429688,
+    "step": 270.11474609375,
+    "total": 1039.4632568359375
+  },
+  {
+    "zero_grad": 0.5047680139541626,
+    "forward": 114.27935791015625,
+    "loss": 0.860863983631134,
+    "backward": 654.0106811523438,
+    "step": 270.0988464355469,
+    "total": 1039.7545166015625
+  }
+]
+2025-12-03 13:31:42,971 __main__ INFO === Time AttnCheckpointedTransformer ===
+2025-12-03 13:31:42,971 __main__ INFO Time Transformer activation checkpointing: args={'vocab_size': 50257, 'num_layers': 36, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}, batch_size=4, seq_len=256, transformer_cls=AttnCheckpointedTransformer
+2025-12-03 13:31:57,873 memopt.util INFO {
+    "zero_grad": {
+        "avg": 0.5349343985319137,
+        "std": 0.05356772002596868,
+        "pct": 0.05812846753586152
+    },
+    "forward": {
+        "avg": 114.24741592407227,
+        "std": 1.9111504276473605,
+        "pct": 12.414702073343204
+    },
+    "loss": {
+        "avg": 1.4424607872962951,
+        "std": 0.19354325127730912,
+        "pct": 0.1567332115628033
+    },
+    "backward": {
+        "avg": 547.4973205566406,
+        "std": 0.7719589422553239,
+        "pct": 59.49528575162644
+    },
+    "step": {
+        "avg": 256.5174255371094,
+        "std": 0.15724110210315312,
+        "pct": 27.875149202766686
+    },
+    "total": {
+        "avg": 920.2395690917969,
+        "std": 1.4288026897435415,
+        "pct": 100.0
+    }
+}
+2025-12-03 13:31:57,873 memopt.util INFO [
+  {
+    "zero_grad": 0.1634880006313324,
+    "forward": 189.7994842529297,
+    "loss": 0.757535994052887,
+    "backward": 548.7627563476562,
+    "step": 273.6513977050781,
+    "total": 1013.1347045898438
+  },
+  {
+    "zero_grad": 0.502623975276947,
+    "forward": 114.71446228027344,
+    "loss": 1.477952003479004,
+    "backward": 547.5332641601562,
+    "step": 256.3623962402344,
+    "total": 920.5906982421875
+  },
+  {
+    "zero_grad": 0.5049920082092285,
+    "forward": 114.97747039794922,
+    "loss": 1.421247959136963,
+    "backward": 547.2236328125,
+    "step": 256.426513671875,
+    "total": 920.5538330078125
+  },
+  {
+    "zero_grad": 0.5046399831771851,
+    "forward": 115.04310607910156,
+    "loss": 1.4061440229415894,
+    "backward": 546.7783813476562,
+    "step": 256.5215759277344,
+    "total": 920.2538452148438
+  },
+  {
+    "zero_grad": 0.5075200200080872,
+    "forward": 114.49849700927734,
+    "loss": 1.3837120532989502,
+    "backward": 546.8750610351562,
+    "step": 256.4071044921875,
+    "total": 919.671875
+  },
+  {
+    "zero_grad": 0.5280960202217102,
+    "forward": 115.16012573242188,
+    "loss": 1.3926080465316772,
+    "backward": 546.5924072265625,
+    "step": 256.26312255859375,
+    "total": 919.9364013671875
+  },
+  {
+    "zero_grad": 0.49718400835990906,
+    "forward": 114.80294036865234,
+    "loss": 1.3380160331726074,
+    "backward": 547.2422485351562,
+    "step": 256.4977111816406,
+    "total": 920.3780517578125
+  },
+  {
+    "zero_grad": 0.5053759813308716,
+    "forward": 114.73136138916016,
+    "loss": 1.3681600093841553,
+    "backward": 547.3284301757812,
+    "step": 256.704833984375,
+    "total": 920.63818359375
+  },
+  {
+    "zero_grad": 0.6886079907417297,
+    "forward": 114.90940856933594,
+    "loss": 1.4474879503250122,
+    "backward": 547.0474243164062,
+    "step": 256.4494323730469,
+    "total": 920.5423583984375
+  },
+  {
+    "zero_grad": 0.531711995601654,
+    "forward": 114.97750091552734,
+    "loss": 1.4431999921798706,
+    "backward": 547.4177856445312,
+    "step": 256.44793701171875,
+    "total": 920.818115234375
+  },
+  {
+    "zero_grad": 0.5057600140571594,
+    "forward": 114.83894348144531,
+    "loss": 1.3574719429016113,
+    "backward": 546.9503173828125,
+    "step": 256.49517822265625,
+    "total": 920.147705078125
+  },
+  {
+    "zero_grad": 0.5042240023612976,
+    "forward": 114.2992935180664,
+    "loss": 1.3730239868164062,
+    "backward": 546.9063720703125,
+    "step": 256.6300354003906,
+    "total": 919.7130126953125
+  },
+  {
+    "zero_grad": 0.514303982257843,
+    "forward": 108.55903625488281,
+    "loss": 1.3169920444488525,
+    "backward": 549.3462524414062,
+    "step": 256.7456970214844,
+    "total": 916.4822998046875
+  },
+  {
+    "zero_grad": 0.5213119983673096,
+    "forward": 114.99440002441406,
+    "loss": 1.3764159679412842,
+    "backward": 548.3085327148438,
+    "step": 256.65435791015625,
+    "total": 921.8550415039062
+  },
+  {
+    "zero_grad": 0.5527679920196533,
+    "forward": 115.2011489868164,
+    "loss": 2.0112318992614746,
+    "backward": 547.8334350585938,
+    "step": 256.28594970703125,
+    "total": 921.884521484375
+  }
+]
+2025-12-03 13:31:57,877 __main__ INFO === Time FFNCheckpointedTransformer ===
+2025-12-03 13:31:57,877 __main__ INFO Time Transformer activation checkpointing: args={'vocab_size': 50257, 'num_layers': 36, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}, batch_size=4, seq_len=256, transformer_cls=FFNCheckpointedTransformer
+2025-12-03 13:32:13,435 memopt.util INFO {
+    "zero_grad": {
+        "avg": 0.5968223989009858,
+        "std": 0.08143730404066023,
+        "pct": 0.06160106725724875
+    },
+    "forward": {
+        "avg": 115.50618362426758,
+        "std": 0.14385547612030747,
+        "pct": 11.922025205358722
+    },
+    "loss": {
+        "avg": 2.798780822753906,
+        "std": 0.23621411359665564,
+        "pct": 0.28887664954904363
+    },
+    "backward": {
+        "avg": 570.4513244628906,
+        "std": 0.36455833806345683,
+        "pct": 58.87941115956319
+    },
+    "step": {
+        "avg": 279.4937469482422,
+        "std": 0.07843845124874219,
+        "pct": 28.848086079925867
+    },
+    "total": {
+        "avg": 968.8468566894531,
+        "std": 0.2978247151391507,
+        "pct": 100.0
+    }
+}
+2025-12-03 13:32:13,435 memopt.util INFO [
+  {
+    "zero_grad": 0.14614400267601013,
+    "forward": 116.06172943115234,
+    "loss": 0.7465599775314331,
+    "backward": 574.1510620117188,
+    "step": 296.2153625488281,
+    "total": 987.3208618164062
+  },
+  {
+    "zero_grad": 0.7339199781417847,
+    "forward": 115.69420623779297,
+    "loss": 3.5044479370117188,
+    "backward": 570.4008178710938,
+    "step": 279.17669677734375,
+    "total": 969.5101318359375
+  },
+  {
+    "zero_grad": 0.8158720135688782,
+    "forward": 115.66178894042969,
+    "loss": 3.5840001106262207,
+    "backward": 570.5128173828125,
+    "step": 278.928466796875,
+    "total": 969.5029907226562
+  },
+  {
+    "zero_grad": 0.8401920199394226,
+    "forward": 115.76534271240234,
+    "loss": 3.833280086517334,
+    "backward": 569.64111328125,
+    "step": 278.9595642089844,
+    "total": 969.0394287109375
+  },
+  {
+    "zero_grad": 0.9376639723777771,
+    "forward": 115.66989135742188,
+    "loss": 2.6289279460906982,
+    "backward": 571.0418701171875,
+    "step": 278.8393859863281,
+    "total": 969.1177368164062
+  },
+  {
+    "zero_grad": 0.837440013885498,
+    "forward": 115.56304168701172,
+    "loss": 3.461024045944214,
+    "backward": 569.6509399414062,
+    "step": 279.4812927246094,
+    "total": 968.9937133789062
+  },
+  {
+    "zero_grad": 0.5863040089607239,
+    "forward": 115.54473876953125,
+    "loss": 2.898303985595703,
+    "backward": 570.5155639648438,
+    "step": 279.53851318359375,
+    "total": 969.0834350585938
+  },
+  {
+    "zero_grad": 0.5744959712028503,
+    "forward": 115.238525390625,
+    "loss": 2.790112018585205,
+    "backward": 570.3170776367188,
+    "step": 279.5559387207031,
+    "total": 968.4761352539062
+  },
+  {
+    "zero_grad": 0.5603200197219849,
+    "forward": 115.6028823852539,
+    "loss": 2.7097280025482178,
+    "backward": 570.9113159179688,
+    "step": 279.5670166015625,
+    "total": 969.3512573242188
+  },
+  {
+    "zero_grad": 0.5738239884376526,
+    "forward": 115.49324798583984,
+    "loss": 2.714303970336914,
+    "backward": 570.661865234375,
+    "step": 279.4299011230469,
+    "total": 968.8731689453125
+  },
+  {
+    "zero_grad": 0.5573760271072388,
+    "forward": 115.51798248291016,
+    "loss": 2.6079680919647217,
+    "backward": 570.3204345703125,
+    "step": 279.5233459472656,
+    "total": 968.5271606445312
+  },
+  {
+    "zero_grad": 0.5597440004348755,
+    "forward": 115.44886779785156,
+    "loss": 2.6922879219055176,
+    "backward": 570.6790161132812,
+    "step": 279.4347229003906,
+    "total": 968.8146362304688
+  },
+  {
+    "zero_grad": 0.5543040037155151,
+    "forward": 115.36300659179688,
+    "loss": 2.6594560146331787,
+    "backward": 570.6428833007812,
+    "step": 279.6155700683594,
+    "total": 968.835205078125
+  },
+  {
+    "zero_grad": 0.5623679757118225,
+    "forward": 115.81613159179688,
+    "loss": 2.6351680755615234,
+    "backward": 570.7948608398438,
+    "step": 279.3340148925781,
+    "total": 969.1425170898438
+  },
+  {
+    "zero_grad": 0.6020479798316956,
+    "forward": 115.4734115600586,
+    "loss": 2.819456100463867,
+    "backward": 570.019287109375,
+    "step": 279.4571533203125,
+    "total": 968.371337890625
+  }
+]

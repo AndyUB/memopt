@@ -11,19 +11,22 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def setup_master_params(model: torch.nn.Module) -> list[torch.Tensor]:
+def setup_master_params(
+    model: torch.nn.Module, device: torch.device
+) -> list[torch.Tensor]:
     """
     Create FP32 master copy of parameters.
 
     Args:
         model: The model whose parameters are to be copied.
+        device: The device to place the master parameters on.
 
     Returns:
         List of FP32 master parameters.
     """
     master_params = []
     for param in model.parameters():
-        master_param = param.detach().clone().float()
+        master_param = param.detach().clone().float().to(device)
         master_param.requires_grad = param.requires_grad
         master_params.append(master_param)
     return master_params
@@ -60,6 +63,7 @@ class MixedPrecisionTrainer:
         self,
         model: torch.nn.Module,
         lower_precision_dtype: torch.dtype,
+        device: torch.device,
         use_master_copy: bool = True,
         loss_scale: float | None = None,
         use_autocast: bool = False,
@@ -68,6 +72,7 @@ class MixedPrecisionTrainer:
         Args:
             model: The model to be trained. Should be initialized in FP32.
             lower_precision_dtype: The lower precision dtype.
+            device: The device to run the model on.
             use_master_copy: Whether to maintain FP32 master copy of parameters.
             loss_scale: Constant loss scale factor. If None, loss is not scaled.
             use_autocast: Whether to use torch.autocast for automatic casting.
@@ -77,6 +82,7 @@ class MixedPrecisionTrainer:
 
         self.model = model
         self.lower_precision_dtype = lower_precision_dtype
+        self.device = device
         self.use_master_copy = use_master_copy
         self.loss_scale = loss_scale
         self.use_autocast = use_autocast
@@ -89,8 +95,8 @@ class MixedPrecisionTrainer:
                 # handles casting internally. Keep model in FP32.
                 self.model_dtype = torch.float32
             else:
-                self.master_params = setup_master_params(model)
-        model.to(self.model_dtype)
+                self.master_params = setup_master_params(model, device)
+        model.to(device=device, dtype=self.model_dtype)
 
         self.optimizer_dtype = (
             torch.float32 if use_master_copy else lower_precision_dtype
@@ -115,7 +121,9 @@ class MixedPrecisionTrainer:
         Returns:
             Tuple of casted input tensors.
         """
-        casted_inputs = tuple(inp.to(self.model_dtype) for inp in inputs)
+        casted_inputs = tuple(
+            inp.to(device=self.device, dtype=self.model_dtype) for inp in inputs
+        )
         return casted_inputs
 
     def forward_context(self) -> torch.Tensor:
@@ -124,7 +132,7 @@ class MixedPrecisionTrainer:
         """
         if self.use_autocast:
             return torch.autocast(
-                device_type="cuda" if torch.cuda.is_available() else "cpu",
+                device_type=self.device.type,
                 dtype=self.lower_precision_dtype,
             )
         else:
