@@ -98,3 +98,88 @@ class AdamW(torch.optim.Optimizer):
                     p.sub_(lr * weight_decay * p)
 
         return loss
+
+
+class CPUAdamW(torch.optim.Optimizer):
+    def __init__(
+        self,
+        params,
+        lr: float,
+        betas: tuple[float, float],
+        eps: float,
+        weight_decay: float,
+        swap_stream: torch.cuda.Stream | None = None,
+        dtype: torch.dtype | None = None,
+    ):
+        defaults = {
+            "lr": lr,
+            "betas": betas,
+            "eps": eps,
+            "weight_decay": weight_decay,
+            "dtype": dtype or torch.float32,
+        }
+        super().__init__(params, defaults)
+        self.swap_stream = swap_stream
+
+    @torch.no_grad()
+    def step(self, closure=None):
+        loss = None
+        if closure is not None:
+            with torch.enable_grad():
+                loss = closure()
+
+        for group in self.param_groups:
+            lr = group["lr"]
+            eps = group["eps"]
+            beta1, beta2 = group["betas"]
+            weight_decay = group["weight_decay"]
+            state_dtype = group["dtype"]
+
+            for p in group["params"]:
+                if p.grad is None:
+                    continue
+
+                state = self.state[p]
+
+                g_cpu = state.pop("cpu_grad", None)
+                if g_cpu is None:
+                    g_cpu = p.grad.detach().to("cpu", dtype=state_dtype)
+
+                if len(state) == 0:
+                    state["t"] = 0
+                    state["m"] = torch.zeros_like(g_cpu, dtype=state_dtype, device="cpu")
+                    state["v"] = torch.zeros_like(g_cpu, dtype=state_dtype, device="cpu")
+
+                m = state["m"]
+                v = state["v"]
+                state["t"] += 1
+                t = state["t"]
+
+                m.mul_(beta1).add_(g_cpu, alpha=(1 - beta1))
+                v.mul_(beta2).addcmul_(g_cpu, g_cpu, value=(1 - beta2))
+
+                bias_correction1 = 1 - beta1**t
+                bias_correction2 = 1 - beta2**t
+                step_size = lr * math.sqrt(bias_correction2) / bias_correction1
+
+                denom = v.sqrt().add_(eps)
+                update_cpu = m / denom
+                update_cpu.mul_(step_size)
+
+                if weight_decay != 0:
+                    p_cpu_for_decay = p.detach().to("cpu", dtype=state_dtype)
+                    update_cpu.add_(p_cpu_for_decay, alpha=lr * weight_decay)
+
+                if p.device.type == "cpu":
+                    p.add_(-update_cpu)
+                else:
+                    if self.swap_stream is not None and p.device.type == "cuda":
+                        with torch.cuda.stream(self.swap_stream):
+                            update_gpu = update_cpu.to(p.device, non_blocking=True)
+                        p.add_(-update_gpu)
+                    else:
+                        update_gpu = update_cpu.to(p.device)
+                        p.add_(-update_gpu)
+
+        return loss
+
