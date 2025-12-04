@@ -25,6 +25,35 @@ def set_seed(seed: int = DEFAULT_SEED) -> None:
     torch.cuda.manual_seed_all(seed)
 
 
+def setup_master_params(
+    model: torch.nn.Module,
+    device: torch.device,
+    dtype: torch.dtype | None = None,
+    pin_memory: bool = False,
+) -> list[torch.Tensor]:
+    """
+    Create FP32 master copy of parameters.
+
+    Args:
+        model: The model whose parameters are to be copied.
+        device: The device to place the master parameters on.
+        dtype: The data type for the master parameters. If None, keep the original
+            dtype.
+        pin_memory: Whether to pin the memory of the master parameters.
+
+    Returns:
+        List of FP32 master parameters.
+    """
+    master_params = []
+    for param in model.parameters():
+        master_param = param.detach().clone().to(dtype=dtype, device=device)
+        if pin_memory:
+            master_param = master_param.pin_memory()
+        master_param.requires_grad = param.requires_grad
+        master_params.append(master_param)
+    return master_params
+
+
 @dataclass
 class MemoryStats:
     curr_allocated_bytes: int
