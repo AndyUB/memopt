@@ -1,4 +1,0 @@
-model_size,num_layers,d_model,num_heads,d_ff,context_length,batch_size,peak_allocated_with_offload_gb,peak_reserved_with_offload_gb
-large/50layers,50,1280,20,5120,256,4,11.585426807403564,13.798828125
-large/51layers,51,1280,20,5120,256,4,11.782711505889893,14.4765625
-xlarge,48,1536,24,6144,256,4,20.94925832748413,23.11328125

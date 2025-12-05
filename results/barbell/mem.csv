@@ -1,0 +1,4 @@
+model_name,ckpt_strat,peak_allocated_with_offload_gib
+large/42layers,No Optimizations,24379351552.0
+large/42layers,All Optimizations,9.97650957107544
+xlarge/71layers,All Optimizations,21.808973789215088

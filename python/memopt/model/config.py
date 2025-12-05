@@ -61,9 +61,13 @@ def clone_and_update(obj: dict[str, Any], key: str, new_value: Any) -> dict[str,
 OOM_TRANSFORMER_CONFIGS = {
     **{
         f"large/{n}layers": clone_and_update(TRANSFORMER_LARGE, "num_layers", n)
-        for n in range(40, 52)
+        for n in range(40, 61)
     },
     "xlarge": TRANSFOMRER_XLARGE,
+    **{
+        f"xlarge/{n}layers": clone_and_update(TRANSFOMRER_XLARGE, "num_layers", n)
+        for n in range(49, 81)
+    },
 }
 
 

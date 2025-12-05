@@ -20,8 +20,8 @@ from memopt.benchmark.mem_offload import (
 device = torch.device("cuda")
 CONTEXT_LENGTH = 256
 BATCH_SIZE = TRANSFORMER_DEFAULT_BATCH_SIZE
-NUM_WARMUP_ITERS = 3
-NUM_TIMING_ITERS = 5
+NUM_WARMUP_ITERS = 1
+NUM_MEMORY_ITERS = 2
 
 
 def benchmark_oom(model_config, model_name, results_list, transformer_cls=Transformer):
@@ -31,6 +31,7 @@ def benchmark_oom(model_config, model_name, results_list, transformer_cls=Transf
     print(f"{'='*60}")
     print(f"Config: {model_config}")
     print(f"Context length: {CONTEXT_LENGTH}, Batch size: {BATCH_SIZE}")
+    print(f"transformer_cls: {transformer_cls.__name__}")
 
     result_row = {
         "model_name": model_name,
@@ -115,8 +116,8 @@ def benchmark_oom(model_config, model_name, results_list, transformer_cls=Transf
     reset_memory_stats()
 
     # Run timing iterations
-    print(f"\nRunning {NUM_TIMING_ITERS} iterations...")
-    for step in range(NUM_TIMING_ITERS):
+    print(f"\nRunning {NUM_MEMORY_ITERS} iterations...")
+    for step in range(NUM_MEMORY_ITERS):
         (token_ids_cast,) = trainer_offload.cast_inputs(token_ids)
         logits = trainer_offload.forward(token_ids_cast)
         loss = torch.nn.functional.cross_entropy(
@@ -163,58 +164,109 @@ def benchmark_oom(model_config, model_name, results_list, transformer_cls=Transf
     del model, trainer_offload, token_ids, targets, logits, loss
     torch.cuda.empty_cache()
 
+    return peak_with_offload
+
 
 if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model_name", type=str, default="all")
+    parser.add_argument("--ckpt_strat", type=str, default="all")
+    parser.add_argument("--result_csv", type=str, default=None)
+    args = parser.parse_args()
+    print(f"Arguments: {args}")
+
     print("GPU Memory Benchmarking: Transformer models with and without CPU offload")
     print(f"Device: {device}")
     print(f"GPU: {torch.cuda.get_device_name(device)}")
     print(
-        f"Total GPU Memory: {torch.cuda.get_device_properties(device).total_memory / 1024**3:.2f} GB"
+        f"Total GPU Memory: {torch.cuda.get_device_properties(device).total_memory / 1024**3:.2f} GiB"
     )
 
     # Store results for CSV export
     results = []
 
-    for model_name, model_config in OOM_TRANSFORMER_CONFIGS.items():
-        if model_name.startswith("large/") and model_name.endswith("layers"):
-            num_layers = int(model_name[len("large/") : -len("layers")])
-            if num_layers < 50:
+    if args.ckpt_strat == "all":
+        ckpt_strats = ["Attention", "FFN", "Blockwise"]
+    else:
+        ckpt_strats = [args.ckpt_strat]
+
+    if args.model_name == "all":
+        model_names = list(OOM_TRANSFORMER_CONFIGS.keys())
+    else:
+        model_names = [args.model_name]
+
+    result_rows = []
+    for ckpt_strat in ckpt_strats:
+        for model_name, model_config in OOM_TRANSFORMER_CONFIGS.items():
+            # if model_name.startswith("large/") and model_name.endswith("layers"):
+            #     num_layers = int(model_name[len("large/") : -len("layers")])
+            #     if num_layers < 50:
+            #         continue
+            #     continue
+            if model_name not in model_names:
                 continue
 
-        try:
-            benchmark_oom(
-                model_config,
-                model_name,
-                results,
-                transformer_cls=CKPT_STRATEGIES["Blockwise"],
-            )
-        except RuntimeError as e:
-            print(f"OOM? {e}")
+            try:
+                peak_with_offload = benchmark_oom(
+                    model_config,
+                    model_name,
+                    results,
+                    transformer_cls=CKPT_STRATEGIES[ckpt_strat],
+                )
+                result_rows.append(
+                    {
+                        "model_name": model_name,
+                        "ckpt_strat": ckpt_strat,
+                        "peak_allocated_with_offload_gib": peak_with_offload,
+                    }
+                )
+            except RuntimeError as e:
+                print(f"OOM? {e}")
 
-    # Export results to CSV
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_dir = "results"
-    os.makedirs(output_dir, exist_ok=True)
-    csv_filename = os.path.join(output_dir, f"memory_benchmark_{timestamp}.csv")
+        # Export results to CSV
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        output_dir = "results"
+        os.makedirs(output_dir, exist_ok=True)
+        csv_filename = os.path.join(
+            output_dir, f"memory_benchmark_{ckpt_strat}_{timestamp}.csv"
+        )
 
-    if results:
-        fieldnames = [
-            "model_name",
-            "num_layers",
-            "d_model",
-            "num_heads",
-            "d_ff",
-            "context_length",
-            "batch_size",
-            "peak_allocated_with_offload_gb",
-            "peak_reserved_with_offload_gb",
-        ]
+        if results:
+            fieldnames = [
+                "model_name",
+                "num_layers",
+                "d_model",
+                "num_heads",
+                "d_ff",
+                "context_length",
+                "batch_size",
+                "peak_allocated_with_offload_gb",
+                "peak_reserved_with_offload_gb",
+            ]
 
-        with open(csv_filename, "w", newline="") as csvfile:
+            with open(csv_filename, "w", newline="") as csvfile:
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                writer.writeheader()
+                writer.writerows(results)
+
+            print(f"\n{'='*60}")
+            print(f"Results exported to: {csv_filename}")
+            print(f"{'='*60}")
+
+    if args.result_csv is not None:
+        csv_filename = args.result_csv
+        # If CSV file exists, append; otherwise, create new
+        file_mode = "a" if os.path.exists(csv_filename) else "w"
+        write_header = not os.path.exists(csv_filename)
+        with open(csv_filename, file_mode, newline="") as csvfile:
+            fieldnames = [
+                "model_name",
+                "ckpt_strat",
+                "peak_allocated_with_offload_gib",
+            ]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            writer.writeheader()
-            writer.writerows(results)
-
-        print(f"\n{'='*60}")
-        print(f"Results exported to: {csv_filename}")
-        print(f"{'='*60}")
+            if write_header:
+                writer.writeheader()
+            writer.writerows(result_rows)

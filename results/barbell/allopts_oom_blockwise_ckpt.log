@@ -1,0 +1,40 @@
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GB
+
+============================================================
+Memory Benchmarking xlarge
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 48, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 7.33 GB allocated, 7.52 GB reserved
+After trainer creation: 7.33 GB allocated, 7.52 GB reserved
+After data creation: 7.33 GB allocated, 7.52 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 7.44 GB allocated, 18.21 GB reserved
+Peak during warmup: 15.34 GB allocated, 18.21 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 7.44 GB allocated, 18.21 GB reserved
+  Peak:    15.34 GB allocated, 18.21 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    15.34 GB
+
+Peak GPU Memory (reserved):
+  With offload:    18.21 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Blockwise_20251204_215327.csv
+============================================================

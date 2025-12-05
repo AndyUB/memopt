@@ -1,0 +1,2146 @@
+Arguments: Namespace(model_name='large/48layers', ckpt_strat='Blockwise', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking large/48layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 48, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 5.31 GB allocated, 5.39 GB reserved
+After trainer creation: 5.31 GB allocated, 5.39 GB reserved
+After data creation: 5.31 GB allocated, 5.39 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 5.42 GB allocated, 13.31 GB reserved
+Peak during warmup: 11.18 GB allocated, 13.31 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 5.42 GB allocated, 13.32 GB reserved
+  Peak:    11.18 GB allocated, 13.32 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    11.18 GB
+
+Peak GPU Memory (reserved):
+  With offload:    13.32 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Blockwise_20251204_222556.csv
+============================================================
+Arguments: Namespace(model_name='large/52layers', ckpt_strat='Blockwise', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking large/52layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 52, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 5.71 GB allocated, 5.81 GB reserved
+After trainer creation: 5.71 GB allocated, 5.81 GB reserved
+After data creation: 5.71 GB allocated, 5.81 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 5.82 GB allocated, 14.27 GB reserved
+Peak during warmup: 11.99 GB allocated, 14.27 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 5.82 GB allocated, 14.29 GB reserved
+  Peak:    11.99 GB allocated, 14.29 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    11.99 GB
+
+Peak GPU Memory (reserved):
+  With offload:    14.29 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Blockwise_20251204_222628.csv
+============================================================
+Arguments: Namespace(model_name='large/60layers', ckpt_strat='Blockwise', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking large/60layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 60, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 6.52 GB allocated, 6.62 GB reserved
+After trainer creation: 6.52 GB allocated, 6.62 GB reserved
+After data creation: 6.52 GB allocated, 6.62 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 6.63 GB allocated, 16.17 GB reserved
+Peak during warmup: 13.60 GB allocated, 16.17 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 6.63 GB allocated, 16.18 GB reserved
+  Peak:    13.60 GB allocated, 16.18 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    13.60 GB
+
+Peak GPU Memory (reserved):
+  With offload:    16.18 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Blockwise_20251204_222700.csv
+============================================================
+Arguments: Namespace(model_name='xlarge', ckpt_strat='Blockwise', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 48, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 7.33 GB allocated, 7.52 GB reserved
+After trainer creation: 7.33 GB allocated, 7.52 GB reserved
+After data creation: 7.33 GB allocated, 7.52 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 7.44 GB allocated, 18.21 GB reserved
+Peak during warmup: 15.34 GB allocated, 18.21 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 7.44 GB allocated, 18.21 GB reserved
+  Peak:    15.34 GB allocated, 18.21 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    15.34 GB
+
+Peak GPU Memory (reserved):
+  With offload:    18.21 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Blockwise_20251204_222756.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/52layers', ckpt_strat='Blockwise', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/52layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 52, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 7.89 GB allocated, 8.10 GB reserved
+After trainer creation: 7.89 GB allocated, 8.10 GB reserved
+After data creation: 7.89 GB allocated, 8.10 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 8.00 GB allocated, 19.54 GB reserved
+Peak during warmup: 16.46 GB allocated, 19.54 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 8.00 GB allocated, 19.54 GB reserved
+  Peak:    16.46 GB allocated, 19.54 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    16.46 GB
+
+Peak GPU Memory (reserved):
+  With offload:    19.54 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Blockwise_20251204_222857.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/56layers', ckpt_strat='Blockwise', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/56layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 56, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 8.45 GB allocated, 8.67 GB reserved
+After trainer creation: 8.45 GB allocated, 8.67 GB reserved
+After data creation: 8.45 GB allocated, 8.67 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 8.56 GB allocated, 20.87 GB reserved
+Peak during warmup: 17.59 GB allocated, 20.87 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 8.56 GB allocated, 20.87 GB reserved
+  Peak:    17.59 GB allocated, 20.87 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    17.59 GB
+
+Peak GPU Memory (reserved):
+  With offload:    20.87 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Blockwise_20251204_223002.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/60layers', ckpt_strat='Blockwise', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/60layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 60, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 9.01 GB allocated, 9.25 GB reserved
+After trainer creation: 9.01 GB allocated, 9.25 GB reserved
+After data creation: 9.01 GB allocated, 9.25 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 9.13 GB allocated, 22.20 GB reserved
+Peak during warmup: 18.71 GB allocated, 22.20 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 9.13 GB allocated, 22.20 GB reserved
+  Peak:    18.71 GB allocated, 22.20 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    18.71 GB
+
+Peak GPU Memory (reserved):
+  With offload:    22.20 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Blockwise_20251204_223111.csv
+============================================================
+Arguments: Namespace(model_name='large/48layers', ckpt_strat='Attention', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking large/48layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 48, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}
+Context length: 256, Batch size: 4
+transformer_cls: AttnCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 5.31 GB allocated, 5.39 GB reserved
+After trainer creation: 5.31 GB allocated, 5.39 GB reserved
+After data creation: 5.31 GB allocated, 5.39 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 5.42 GB allocated, 16.39 GB reserved
+Peak during warmup: 11.18 GB allocated, 16.39 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 5.42 GB allocated, 16.34 GB reserved
+  Peak:    11.31 GB allocated, 16.39 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    11.31 GB
+
+Peak GPU Memory (reserved):
+  With offload:    16.39 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Attention_20251204_223146.csv
+============================================================
+Arguments: Namespace(model_name='large/52layers', ckpt_strat='Attention', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking large/52layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 52, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}
+Context length: 256, Batch size: 4
+transformer_cls: AttnCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 5.71 GB allocated, 5.81 GB reserved
+After trainer creation: 5.71 GB allocated, 5.81 GB reserved
+After data creation: 5.71 GB allocated, 5.81 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 5.82 GB allocated, 17.62 GB reserved
+Peak during warmup: 12.05 GB allocated, 17.62 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 5.82 GB allocated, 17.59 GB reserved
+  Peak:    12.18 GB allocated, 17.62 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    12.18 GB
+
+Peak GPU Memory (reserved):
+  With offload:    17.62 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Attention_20251204_223219.csv
+============================================================
+2025-12-04 22:32:47,484 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `token_embeddings.weight`
+2025-12-04 22:32:47,484 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.0.ln1.weight`
+2025-12-04 22:32:47,484 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.0.attn.q_proj.weight`
+2025-12-04 22:32:47,484 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.0.attn.k_proj.weight`
+2025-12-04 22:32:47,485 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.0.attn.v_proj.weight`
+2025-12-04 22:32:47,485 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.0.attn.output_proj.weight`
+2025-12-04 22:32:47,485 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.0.ln2.weight`
+2025-12-04 22:32:47,485 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.0.ffn.w1.weight`
+2025-12-04 22:32:47,486 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.0.ffn.w3.weight`
+2025-12-04 22:32:47,486 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.0.ffn.w2.weight`
+2025-12-04 22:32:47,486 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.1.ln1.weight`
+2025-12-04 22:32:47,486 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.1.attn.q_proj.weight`
+2025-12-04 22:32:47,486 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.1.attn.k_proj.weight`
+2025-12-04 22:32:47,486 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.1.attn.v_proj.weight`
+2025-12-04 22:32:47,486 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.1.attn.output_proj.weight`
+2025-12-04 22:32:47,487 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.1.ln2.weight`
+2025-12-04 22:32:47,487 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.1.ffn.w1.weight`
+2025-12-04 22:32:47,487 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.1.ffn.w3.weight`
+2025-12-04 22:32:47,488 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.1.ffn.w2.weight`
+2025-12-04 22:32:47,488 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.2.ln1.weight`
+2025-12-04 22:32:47,488 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.2.attn.q_proj.weight`
+2025-12-04 22:32:47,488 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.2.attn.k_proj.weight`
+2025-12-04 22:32:47,488 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.2.attn.v_proj.weight`
+2025-12-04 22:32:47,488 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.2.attn.output_proj.weight`
+2025-12-04 22:32:47,488 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.2.ln2.weight`
+2025-12-04 22:32:47,489 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.2.ffn.w1.weight`
+2025-12-04 22:32:47,489 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.2.ffn.w3.weight`
+2025-12-04 22:32:47,489 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.2.ffn.w2.weight`
+2025-12-04 22:32:47,489 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.3.ln1.weight`
+2025-12-04 22:32:47,489 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.3.attn.q_proj.weight`
+2025-12-04 22:32:47,490 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.3.attn.k_proj.weight`
+2025-12-04 22:32:47,490 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.3.attn.v_proj.weight`
+2025-12-04 22:32:47,490 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.3.attn.output_proj.weight`
+2025-12-04 22:32:47,490 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.3.ln2.weight`
+2025-12-04 22:32:47,490 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.3.ffn.w1.weight`
+2025-12-04 22:32:47,491 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.3.ffn.w3.weight`
+2025-12-04 22:32:47,491 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.3.ffn.w2.weight`
+2025-12-04 22:32:47,491 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.4.ln1.weight`
+2025-12-04 22:32:47,491 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.4.attn.q_proj.weight`
+2025-12-04 22:32:47,491 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.4.attn.k_proj.weight`
+2025-12-04 22:32:47,491 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.4.attn.v_proj.weight`
+2025-12-04 22:32:47,492 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.4.attn.output_proj.weight`
+2025-12-04 22:32:47,492 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.4.ln2.weight`
+2025-12-04 22:32:47,492 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.4.ffn.w1.weight`
+2025-12-04 22:32:47,492 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.4.ffn.w3.weight`
+2025-12-04 22:32:47,493 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.4.ffn.w2.weight`
+2025-12-04 22:32:47,493 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.5.ln1.weight`
+2025-12-04 22:32:47,493 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.5.attn.q_proj.weight`
+2025-12-04 22:32:47,493 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.5.attn.k_proj.weight`
+2025-12-04 22:32:47,493 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.5.attn.v_proj.weight`
+2025-12-04 22:32:47,493 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.5.attn.output_proj.weight`
+2025-12-04 22:32:47,493 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.5.ln2.weight`
+2025-12-04 22:32:47,494 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.5.ffn.w1.weight`
+2025-12-04 22:32:47,494 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.5.ffn.w3.weight`
+2025-12-04 22:32:47,494 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.5.ffn.w2.weight`
+2025-12-04 22:32:47,494 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.6.ln1.weight`
+2025-12-04 22:32:47,495 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.6.attn.q_proj.weight`
+2025-12-04 22:32:47,495 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.6.attn.k_proj.weight`
+2025-12-04 22:32:47,495 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.6.attn.v_proj.weight`
+2025-12-04 22:32:47,495 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.6.attn.output_proj.weight`
+2025-12-04 22:32:47,495 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.6.ln2.weight`
+2025-12-04 22:32:47,495 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.6.ffn.w1.weight`
+2025-12-04 22:32:47,496 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.6.ffn.w3.weight`
+2025-12-04 22:32:47,496 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.6.ffn.w2.weight`
+2025-12-04 22:32:47,496 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.7.ln1.weight`
+2025-12-04 22:32:47,496 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.7.attn.q_proj.weight`
+2025-12-04 22:32:47,496 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.7.attn.k_proj.weight`
+2025-12-04 22:32:47,497 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.7.attn.v_proj.weight`
+2025-12-04 22:32:47,497 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.7.attn.output_proj.weight`
+2025-12-04 22:32:47,497 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.7.ln2.weight`
+2025-12-04 22:32:47,497 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.7.ffn.w1.weight`
+2025-12-04 22:32:47,497 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.7.ffn.w3.weight`
+2025-12-04 22:32:47,498 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.7.ffn.w2.weight`
+2025-12-04 22:32:47,498 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.8.ln1.weight`
+2025-12-04 22:32:47,498 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.8.attn.q_proj.weight`
+2025-12-04 22:32:47,498 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.8.attn.k_proj.weight`
+2025-12-04 22:32:47,498 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.8.attn.v_proj.weight`
+2025-12-04 22:32:47,498 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.8.attn.output_proj.weight`
+2025-12-04 22:32:47,498 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.8.ln2.weight`
+2025-12-04 22:32:47,499 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.8.ffn.w1.weight`
+2025-12-04 22:32:47,499 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.8.ffn.w3.weight`
+2025-12-04 22:32:47,499 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.8.ffn.w2.weight`
+2025-12-04 22:32:47,500 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.9.ln1.weight`
+2025-12-04 22:32:47,500 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.9.attn.q_proj.weight`
+2025-12-04 22:32:47,500 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.9.attn.k_proj.weight`
+2025-12-04 22:32:47,500 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.9.attn.v_proj.weight`
+2025-12-04 22:32:47,500 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.9.attn.output_proj.weight`
+2025-12-04 22:32:47,500 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.9.ln2.weight`
+2025-12-04 22:32:47,501 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.9.ffn.w1.weight`
+2025-12-04 22:32:47,501 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.9.ffn.w3.weight`
+2025-12-04 22:32:47,501 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.9.ffn.w2.weight`
+2025-12-04 22:32:47,501 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.10.ln1.weight`
+2025-12-04 22:32:47,501 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.10.attn.q_proj.weight`
+2025-12-04 22:32:47,502 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.10.attn.k_proj.weight`
+2025-12-04 22:32:47,502 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.10.attn.v_proj.weight`
+2025-12-04 22:32:47,502 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.10.attn.output_proj.weight`
+2025-12-04 22:32:47,502 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.10.ln2.weight`
+2025-12-04 22:32:47,502 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.10.ffn.w1.weight`
+2025-12-04 22:32:47,503 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.10.ffn.w3.weight`
+2025-12-04 22:32:47,503 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.10.ffn.w2.weight`
+2025-12-04 22:32:47,503 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.11.ln1.weight`
+2025-12-04 22:32:47,503 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.11.attn.q_proj.weight`
+2025-12-04 22:32:47,503 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.11.attn.k_proj.weight`
+2025-12-04 22:32:47,503 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.11.attn.v_proj.weight`
+2025-12-04 22:32:47,504 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.11.attn.output_proj.weight`
+2025-12-04 22:32:47,504 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.11.ln2.weight`
+2025-12-04 22:32:47,504 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.11.ffn.w1.weight`
+2025-12-04 22:32:47,504 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.11.ffn.w3.weight`
+2025-12-04 22:32:47,505 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.11.ffn.w2.weight`
+2025-12-04 22:32:47,505 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.12.ln1.weight`
+2025-12-04 22:32:47,505 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.12.attn.q_proj.weight`
+2025-12-04 22:32:47,505 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.12.attn.k_proj.weight`
+2025-12-04 22:32:47,505 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.12.attn.v_proj.weight`
+2025-12-04 22:32:47,505 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.12.attn.output_proj.weight`
+2025-12-04 22:32:47,505 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.12.ln2.weight`
+2025-12-04 22:32:47,506 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.12.ffn.w1.weight`
+2025-12-04 22:32:47,506 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.12.ffn.w3.weight`
+2025-12-04 22:32:47,506 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.12.ffn.w2.weight`
+2025-12-04 22:32:47,506 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.13.ln1.weight`
+2025-12-04 22:32:47,507 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.13.attn.q_proj.weight`
+2025-12-04 22:32:47,507 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.13.attn.k_proj.weight`
+2025-12-04 22:32:47,507 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.13.attn.v_proj.weight`
+2025-12-04 22:32:47,507 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.13.attn.output_proj.weight`
+2025-12-04 22:32:47,507 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.13.ln2.weight`
+2025-12-04 22:32:47,507 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.13.ffn.w1.weight`
+2025-12-04 22:32:47,508 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.13.ffn.w3.weight`
+2025-12-04 22:32:47,508 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.13.ffn.w2.weight`
+2025-12-04 22:32:47,508 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.14.ln1.weight`
+2025-12-04 22:32:47,508 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.14.attn.q_proj.weight`
+2025-12-04 22:32:47,508 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.14.attn.k_proj.weight`
+2025-12-04 22:32:47,508 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.14.attn.v_proj.weight`
+2025-12-04 22:32:47,509 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.14.attn.output_proj.weight`
+2025-12-04 22:32:47,509 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.14.ln2.weight`
+2025-12-04 22:32:47,509 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.14.ffn.w1.weight`
+2025-12-04 22:32:47,509 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.14.ffn.w3.weight`
+2025-12-04 22:32:47,510 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.14.ffn.w2.weight`
+2025-12-04 22:32:47,510 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.15.ln1.weight`
+2025-12-04 22:32:47,510 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.15.attn.q_proj.weight`
+2025-12-04 22:32:47,510 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.15.attn.k_proj.weight`
+2025-12-04 22:32:47,510 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.15.attn.v_proj.weight`
+2025-12-04 22:32:47,510 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.15.attn.output_proj.weight`
+2025-12-04 22:32:47,510 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.15.ln2.weight`
+2025-12-04 22:32:47,511 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.15.ffn.w1.weight`
+2025-12-04 22:32:47,511 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.15.ffn.w3.weight`
+2025-12-04 22:32:47,511 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.15.ffn.w2.weight`
+2025-12-04 22:32:47,512 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.16.ln1.weight`
+2025-12-04 22:32:47,512 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.16.attn.q_proj.weight`
+2025-12-04 22:32:47,512 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.16.attn.k_proj.weight`
+2025-12-04 22:32:47,512 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.16.attn.v_proj.weight`
+2025-12-04 22:32:47,512 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.16.attn.output_proj.weight`
+2025-12-04 22:32:47,512 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.16.ln2.weight`
+2025-12-04 22:32:47,513 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.16.ffn.w1.weight`
+2025-12-04 22:32:47,513 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.16.ffn.w3.weight`
+2025-12-04 22:32:47,513 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.16.ffn.w2.weight`
+2025-12-04 22:32:47,513 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.17.ln1.weight`
+2025-12-04 22:32:47,513 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.17.attn.q_proj.weight`
+2025-12-04 22:32:47,514 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.17.attn.k_proj.weight`
+2025-12-04 22:32:47,514 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.17.attn.v_proj.weight`
+2025-12-04 22:32:47,514 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.17.attn.output_proj.weight`
+2025-12-04 22:32:47,514 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.17.ln2.weight`
+2025-12-04 22:32:47,514 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.17.ffn.w1.weight`
+2025-12-04 22:32:47,515 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.17.ffn.w3.weight`
+2025-12-04 22:32:47,515 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.17.ffn.w2.weight`
+2025-12-04 22:32:47,515 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.18.ln1.weight`
+2025-12-04 22:32:47,515 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.18.attn.q_proj.weight`
+2025-12-04 22:32:47,515 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.18.attn.k_proj.weight`
+2025-12-04 22:32:47,515 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.18.attn.v_proj.weight`
+2025-12-04 22:32:47,516 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.18.attn.output_proj.weight`
+2025-12-04 22:32:47,516 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.18.ln2.weight`
+2025-12-04 22:32:47,516 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.18.ffn.w1.weight`
+2025-12-04 22:32:47,516 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.18.ffn.w3.weight`
+2025-12-04 22:32:47,517 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.18.ffn.w2.weight`
+2025-12-04 22:32:47,517 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.19.ln1.weight`
+2025-12-04 22:32:47,517 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.19.attn.q_proj.weight`
+2025-12-04 22:32:47,517 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.19.attn.k_proj.weight`
+2025-12-04 22:32:47,517 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.19.attn.v_proj.weight`
+2025-12-04 22:32:47,517 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.19.attn.output_proj.weight`
+2025-12-04 22:32:47,517 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.19.ln2.weight`
+2025-12-04 22:32:47,518 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.19.ffn.w1.weight`
+2025-12-04 22:32:47,518 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.19.ffn.w3.weight`
+2025-12-04 22:32:47,518 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.19.ffn.w2.weight`
+2025-12-04 22:32:47,518 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.20.ln1.weight`
+2025-12-04 22:32:47,519 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.20.attn.q_proj.weight`
+2025-12-04 22:32:47,519 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.20.attn.k_proj.weight`
+2025-12-04 22:32:47,519 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.20.attn.v_proj.weight`
+2025-12-04 22:32:47,519 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.20.attn.output_proj.weight`
+2025-12-04 22:32:47,519 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.20.ln2.weight`
+2025-12-04 22:32:47,519 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.20.ffn.w1.weight`
+2025-12-04 22:32:47,520 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.20.ffn.w3.weight`
+2025-12-04 22:32:47,520 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.20.ffn.w2.weight`
+2025-12-04 22:32:47,520 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.21.ln1.weight`
+2025-12-04 22:32:47,520 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.21.attn.q_proj.weight`
+2025-12-04 22:32:47,520 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.21.attn.k_proj.weight`
+2025-12-04 22:32:47,521 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.21.attn.v_proj.weight`
+2025-12-04 22:32:47,521 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.21.attn.output_proj.weight`
+2025-12-04 22:32:47,521 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.21.ln2.weight`
+2025-12-04 22:32:47,521 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.21.ffn.w1.weight`
+2025-12-04 22:32:47,521 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.21.ffn.w3.weight`
+2025-12-04 22:32:47,522 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.21.ffn.w2.weight`
+2025-12-04 22:32:47,522 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.22.ln1.weight`
+2025-12-04 22:32:47,522 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.22.attn.q_proj.weight`
+2025-12-04 22:32:47,522 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.22.attn.k_proj.weight`
+2025-12-04 22:32:47,522 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.22.attn.v_proj.weight`
+2025-12-04 22:32:47,522 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.22.attn.output_proj.weight`
+2025-12-04 22:32:47,522 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.22.ln2.weight`
+2025-12-04 22:32:47,523 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.22.ffn.w1.weight`
+2025-12-04 22:32:47,523 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.22.ffn.w3.weight`
+2025-12-04 22:32:47,523 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.22.ffn.w2.weight`
+2025-12-04 22:32:47,524 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.23.ln1.weight`
+2025-12-04 22:32:47,524 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.23.attn.q_proj.weight`
+2025-12-04 22:32:47,524 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.23.attn.k_proj.weight`
+2025-12-04 22:32:47,524 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.23.attn.v_proj.weight`
+2025-12-04 22:32:47,524 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.23.attn.output_proj.weight`
+2025-12-04 22:32:47,524 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.23.ln2.weight`
+2025-12-04 22:32:47,525 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.23.ffn.w1.weight`
+2025-12-04 22:32:47,525 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.23.ffn.w3.weight`
+2025-12-04 22:32:47,525 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.23.ffn.w2.weight`
+2025-12-04 22:32:47,525 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.24.ln1.weight`
+2025-12-04 22:32:47,525 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.24.attn.q_proj.weight`
+2025-12-04 22:32:47,526 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.24.attn.k_proj.weight`
+2025-12-04 22:32:47,526 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.24.attn.v_proj.weight`
+2025-12-04 22:32:47,526 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.24.attn.output_proj.weight`
+2025-12-04 22:32:47,526 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.24.ln2.weight`
+2025-12-04 22:32:47,526 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.24.ffn.w1.weight`
+2025-12-04 22:32:47,527 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.24.ffn.w3.weight`
+2025-12-04 22:32:47,527 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.24.ffn.w2.weight`
+2025-12-04 22:32:47,527 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.25.ln1.weight`
+2025-12-04 22:32:47,527 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.25.attn.q_proj.weight`
+2025-12-04 22:32:47,527 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.25.attn.k_proj.weight`
+2025-12-04 22:32:47,527 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.25.attn.v_proj.weight`
+2025-12-04 22:32:47,528 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.25.attn.output_proj.weight`
+2025-12-04 22:32:47,528 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.25.ln2.weight`
+2025-12-04 22:32:47,528 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.25.ffn.w1.weight`
+2025-12-04 22:32:47,528 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.25.ffn.w3.weight`
+2025-12-04 22:32:47,529 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.25.ffn.w2.weight`
+2025-12-04 22:32:47,529 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.26.ln1.weight`
+2025-12-04 22:32:47,529 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.26.attn.q_proj.weight`
+2025-12-04 22:32:47,529 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.26.attn.k_proj.weight`
+2025-12-04 22:32:47,529 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.26.attn.v_proj.weight`
+2025-12-04 22:32:47,529 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.26.attn.output_proj.weight`
+2025-12-04 22:32:47,529 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.26.ln2.weight`
+2025-12-04 22:32:47,530 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.26.ffn.w1.weight`
+2025-12-04 22:32:47,530 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.26.ffn.w3.weight`
+2025-12-04 22:32:47,530 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.26.ffn.w2.weight`
+2025-12-04 22:32:47,530 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.27.ln1.weight`
+2025-12-04 22:32:47,531 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.27.attn.q_proj.weight`
+2025-12-04 22:32:47,531 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.27.attn.k_proj.weight`
+2025-12-04 22:32:47,531 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.27.attn.v_proj.weight`
+2025-12-04 22:32:47,531 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.27.attn.output_proj.weight`
+2025-12-04 22:32:47,531 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.27.ln2.weight`
+2025-12-04 22:32:47,531 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.27.ffn.w1.weight`
+2025-12-04 22:32:47,532 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.27.ffn.w3.weight`
+2025-12-04 22:32:47,532 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.27.ffn.w2.weight`
+2025-12-04 22:32:47,532 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.28.ln1.weight`
+2025-12-04 22:32:47,532 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.28.attn.q_proj.weight`
+2025-12-04 22:32:47,533 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.28.attn.k_proj.weight`
+2025-12-04 22:32:47,533 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.28.attn.v_proj.weight`
+2025-12-04 22:32:47,533 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.28.attn.output_proj.weight`
+2025-12-04 22:32:47,533 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.28.ln2.weight`
+2025-12-04 22:32:47,533 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.28.ffn.w1.weight`
+2025-12-04 22:32:47,534 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.28.ffn.w3.weight`
+2025-12-04 22:32:47,534 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.28.ffn.w2.weight`
+2025-12-04 22:32:47,534 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.29.ln1.weight`
+2025-12-04 22:32:47,534 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.29.attn.q_proj.weight`
+2025-12-04 22:32:47,534 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.29.attn.k_proj.weight`
+2025-12-04 22:32:47,534 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.29.attn.v_proj.weight`
+2025-12-04 22:32:47,535 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.29.attn.output_proj.weight`
+2025-12-04 22:32:47,535 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.29.ln2.weight`
+2025-12-04 22:32:47,535 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.29.ffn.w1.weight`
+2025-12-04 22:32:47,535 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.29.ffn.w3.weight`
+2025-12-04 22:32:47,536 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.29.ffn.w2.weight`
+2025-12-04 22:32:47,536 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.30.ln1.weight`
+2025-12-04 22:32:47,536 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.30.attn.q_proj.weight`
+2025-12-04 22:32:47,536 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.30.attn.k_proj.weight`
+2025-12-04 22:32:47,536 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.30.attn.v_proj.weight`
+2025-12-04 22:32:47,536 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.30.attn.output_proj.weight`
+2025-12-04 22:32:47,536 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.30.ln2.weight`
+2025-12-04 22:32:47,537 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.30.ffn.w1.weight`
+2025-12-04 22:32:47,537 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.30.ffn.w3.weight`
+2025-12-04 22:32:47,537 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.30.ffn.w2.weight`
+2025-12-04 22:32:47,537 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.31.ln1.weight`
+2025-12-04 22:32:47,538 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.31.attn.q_proj.weight`
+2025-12-04 22:32:47,538 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.31.attn.k_proj.weight`
+2025-12-04 22:32:47,538 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.31.attn.v_proj.weight`
+2025-12-04 22:32:47,538 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.31.attn.output_proj.weight`
+2025-12-04 22:32:47,538 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.31.ln2.weight`
+2025-12-04 22:32:47,538 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.31.ffn.w1.weight`
+2025-12-04 22:32:47,539 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.31.ffn.w3.weight`
+2025-12-04 22:32:47,539 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.31.ffn.w2.weight`
+2025-12-04 22:32:47,539 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.32.ln1.weight`
+2025-12-04 22:32:47,539 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.32.attn.q_proj.weight`
+2025-12-04 22:32:47,539 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.32.attn.k_proj.weight`
+2025-12-04 22:32:47,539 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.32.attn.v_proj.weight`
+2025-12-04 22:32:47,540 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.32.attn.output_proj.weight`
+2025-12-04 22:32:47,540 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.32.ln2.weight`
+2025-12-04 22:32:47,540 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.32.ffn.w1.weight`
+2025-12-04 22:32:47,540 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.32.ffn.w3.weight`
+2025-12-04 22:32:47,541 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.32.ffn.w2.weight`
+2025-12-04 22:32:47,541 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.33.ln1.weight`
+2025-12-04 22:32:47,541 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.33.attn.q_proj.weight`
+2025-12-04 22:32:47,541 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.33.attn.k_proj.weight`
+2025-12-04 22:32:47,541 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.33.attn.v_proj.weight`
+2025-12-04 22:32:47,541 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.33.attn.output_proj.weight`
+2025-12-04 22:32:47,541 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.33.ln2.weight`
+2025-12-04 22:32:47,542 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.33.ffn.w1.weight`
+2025-12-04 22:32:47,542 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.33.ffn.w3.weight`
+2025-12-04 22:32:47,542 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.33.ffn.w2.weight`
+2025-12-04 22:32:47,543 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.34.ln1.weight`
+2025-12-04 22:32:47,543 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.34.attn.q_proj.weight`
+2025-12-04 22:32:47,543 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.34.attn.k_proj.weight`
+2025-12-04 22:32:47,543 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.34.attn.v_proj.weight`
+2025-12-04 22:32:47,543 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.34.attn.output_proj.weight`
+2025-12-04 22:32:47,543 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.34.ln2.weight`
+2025-12-04 22:32:47,543 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.34.ffn.w1.weight`
+2025-12-04 22:32:47,544 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.34.ffn.w3.weight`
+2025-12-04 22:32:47,544 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.34.ffn.w2.weight`
+2025-12-04 22:32:47,544 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.35.ln1.weight`
+2025-12-04 22:32:47,544 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.35.attn.q_proj.weight`
+2025-12-04 22:32:47,545 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.35.attn.k_proj.weight`
+2025-12-04 22:32:47,545 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.35.attn.v_proj.weight`
+2025-12-04 22:32:47,545 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.35.attn.output_proj.weight`
+2025-12-04 22:32:47,545 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.35.ln2.weight`
+2025-12-04 22:32:47,545 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.35.ffn.w1.weight`
+2025-12-04 22:32:47,546 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.35.ffn.w3.weight`
+2025-12-04 22:32:47,546 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.35.ffn.w2.weight`
+2025-12-04 22:32:47,546 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.36.ln1.weight`
+2025-12-04 22:32:47,546 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.36.attn.q_proj.weight`
+2025-12-04 22:32:47,546 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.36.attn.k_proj.weight`
+2025-12-04 22:32:47,546 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.36.attn.v_proj.weight`
+2025-12-04 22:32:47,546 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.36.attn.output_proj.weight`
+2025-12-04 22:32:47,547 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.36.ln2.weight`
+2025-12-04 22:32:47,547 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.36.ffn.w1.weight`
+2025-12-04 22:32:47,547 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.36.ffn.w3.weight`
+2025-12-04 22:32:47,548 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.36.ffn.w2.weight`
+2025-12-04 22:32:47,548 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.37.ln1.weight`
+2025-12-04 22:32:47,548 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.37.attn.q_proj.weight`
+2025-12-04 22:32:47,548 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.37.attn.k_proj.weight`
+2025-12-04 22:32:47,548 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.37.attn.v_proj.weight`
+2025-12-04 22:32:47,548 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.37.attn.output_proj.weight`
+2025-12-04 22:32:47,548 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.37.ln2.weight`
+2025-12-04 22:32:47,549 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.37.ffn.w1.weight`
+2025-12-04 22:32:47,549 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.37.ffn.w3.weight`
+2025-12-04 22:32:47,549 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.37.ffn.w2.weight`
+2025-12-04 22:32:47,549 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.38.ln1.weight`
+2025-12-04 22:32:47,550 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.38.attn.q_proj.weight`
+2025-12-04 22:32:47,550 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.38.attn.k_proj.weight`
+2025-12-04 22:32:47,550 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.38.attn.v_proj.weight`
+2025-12-04 22:32:47,550 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.38.attn.output_proj.weight`
+2025-12-04 22:32:47,550 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.38.ln2.weight`
+2025-12-04 22:32:47,550 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.38.ffn.w1.weight`
+2025-12-04 22:32:47,551 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.38.ffn.w3.weight`
+2025-12-04 22:32:47,551 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.38.ffn.w2.weight`
+2025-12-04 22:32:47,551 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.39.ln1.weight`
+2025-12-04 22:32:47,551 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.39.attn.q_proj.weight`
+2025-12-04 22:32:47,551 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.39.attn.k_proj.weight`
+2025-12-04 22:32:47,551 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.39.attn.v_proj.weight`
+2025-12-04 22:32:47,552 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.39.attn.output_proj.weight`
+2025-12-04 22:32:47,552 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.39.ln2.weight`
+2025-12-04 22:32:47,552 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.39.ffn.w1.weight`
+2025-12-04 22:32:47,552 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.39.ffn.w3.weight`
+2025-12-04 22:32:47,553 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.39.ffn.w2.weight`
+2025-12-04 22:32:47,553 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.40.ln1.weight`
+2025-12-04 22:32:47,553 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.40.attn.q_proj.weight`
+2025-12-04 22:32:47,553 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.40.attn.k_proj.weight`
+2025-12-04 22:32:47,553 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.40.attn.v_proj.weight`
+2025-12-04 22:32:47,553 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.40.attn.output_proj.weight`
+2025-12-04 22:32:47,553 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.40.ln2.weight`
+2025-12-04 22:32:47,554 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.40.ffn.w1.weight`
+2025-12-04 22:32:47,554 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.40.ffn.w3.weight`
+2025-12-04 22:32:47,554 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.40.ffn.w2.weight`
+2025-12-04 22:32:47,555 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.41.ln1.weight`
+2025-12-04 22:32:47,555 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.41.attn.q_proj.weight`
+2025-12-04 22:32:47,555 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.41.attn.k_proj.weight`
+2025-12-04 22:32:47,555 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.41.attn.v_proj.weight`
+2025-12-04 22:32:47,555 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.41.attn.output_proj.weight`
+2025-12-04 22:32:47,555 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.41.ln2.weight`
+2025-12-04 22:32:47,555 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.41.ffn.w1.weight`
+2025-12-04 22:32:47,556 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.41.ffn.w3.weight`
+2025-12-04 22:32:47,556 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.41.ffn.w2.weight`
+2025-12-04 22:32:47,556 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.42.ln1.weight`
+2025-12-04 22:32:47,556 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.42.attn.q_proj.weight`
+2025-12-04 22:32:47,557 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.42.attn.k_proj.weight`
+2025-12-04 22:32:47,557 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.42.attn.v_proj.weight`
+2025-12-04 22:32:47,557 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.42.attn.output_proj.weight`
+2025-12-04 22:32:47,557 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.42.ln2.weight`
+2025-12-04 22:32:47,557 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.42.ffn.w1.weight`
+2025-12-04 22:32:47,558 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.42.ffn.w3.weight`
+2025-12-04 22:32:47,558 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.42.ffn.w2.weight`
+2025-12-04 22:32:47,558 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.43.ln1.weight`
+2025-12-04 22:32:47,558 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.43.attn.q_proj.weight`
+2025-12-04 22:32:47,558 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.43.attn.k_proj.weight`
+2025-12-04 22:32:47,558 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.43.attn.v_proj.weight`
+2025-12-04 22:32:47,558 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.43.attn.output_proj.weight`
+2025-12-04 22:32:47,559 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.43.ln2.weight`
+2025-12-04 22:32:47,559 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.43.ffn.w1.weight`
+2025-12-04 22:32:47,559 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.43.ffn.w3.weight`
+2025-12-04 22:32:47,560 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.43.ffn.w2.weight`
+2025-12-04 22:32:47,560 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.44.ln1.weight`
+2025-12-04 22:32:47,560 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.44.attn.q_proj.weight`
+2025-12-04 22:32:47,560 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.44.attn.k_proj.weight`
+2025-12-04 22:32:47,560 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.44.attn.v_proj.weight`
+2025-12-04 22:32:47,560 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.44.attn.output_proj.weight`
+2025-12-04 22:32:47,560 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.44.ln2.weight`
+2025-12-04 22:32:47,561 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.44.ffn.w1.weight`
+2025-12-04 22:32:47,561 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.44.ffn.w3.weight`
+2025-12-04 22:32:47,561 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.44.ffn.w2.weight`
+2025-12-04 22:32:47,561 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.45.ln1.weight`
+2025-12-04 22:32:47,562 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.45.attn.q_proj.weight`
+2025-12-04 22:32:47,562 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.45.attn.k_proj.weight`
+2025-12-04 22:32:47,562 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.45.attn.v_proj.weight`
+2025-12-04 22:32:47,562 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.45.attn.output_proj.weight`
+2025-12-04 22:32:47,562 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.45.ln2.weight`
+2025-12-04 22:32:47,562 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.45.ffn.w1.weight`
+2025-12-04 22:32:47,563 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.45.ffn.w3.weight`
+2025-12-04 22:32:47,563 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.45.ffn.w2.weight`
+2025-12-04 22:32:47,563 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.46.ln1.weight`
+2025-12-04 22:32:47,563 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.46.attn.q_proj.weight`
+2025-12-04 22:32:47,563 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.46.attn.k_proj.weight`
+2025-12-04 22:32:47,563 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.46.attn.v_proj.weight`
+2025-12-04 22:32:47,564 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.46.attn.output_proj.weight`
+2025-12-04 22:32:47,564 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.46.ln2.weight`
+2025-12-04 22:32:47,564 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.46.ffn.w1.weight`
+2025-12-04 22:32:47,564 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.46.ffn.w3.weight`
+2025-12-04 22:32:47,565 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.46.ffn.w2.weight`
+2025-12-04 22:32:47,565 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.47.ln1.weight`
+2025-12-04 22:32:47,565 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.47.attn.q_proj.weight`
+2025-12-04 22:32:47,565 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.47.attn.k_proj.weight`
+2025-12-04 22:32:47,565 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.47.attn.v_proj.weight`
+2025-12-04 22:32:47,565 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.47.attn.output_proj.weight`
+2025-12-04 22:32:47,565 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.47.ln2.weight`
+2025-12-04 22:32:47,566 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.47.ffn.w1.weight`
+2025-12-04 22:32:47,566 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.47.ffn.w3.weight`
+2025-12-04 22:32:47,566 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.47.ffn.w2.weight`
+2025-12-04 22:32:47,567 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.48.ln1.weight`
+2025-12-04 22:32:47,567 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.48.attn.q_proj.weight`
+2025-12-04 22:32:47,567 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.48.attn.k_proj.weight`
+2025-12-04 22:32:47,567 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.48.attn.v_proj.weight`
+2025-12-04 22:32:47,567 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.48.attn.output_proj.weight`
+2025-12-04 22:32:47,567 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.48.ln2.weight`
+2025-12-04 22:32:47,567 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.48.ffn.w1.weight`
+2025-12-04 22:32:47,568 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.48.ffn.w3.weight`
+2025-12-04 22:32:47,568 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.48.ffn.w2.weight`
+2025-12-04 22:32:47,568 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.49.ln1.weight`
+2025-12-04 22:32:47,568 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.49.attn.q_proj.weight`
+2025-12-04 22:32:47,568 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.49.attn.k_proj.weight`
+2025-12-04 22:32:47,569 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.49.attn.v_proj.weight`
+2025-12-04 22:32:47,569 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.49.attn.output_proj.weight`
+2025-12-04 22:32:47,569 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.49.ln2.weight`
+2025-12-04 22:32:47,569 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.49.ffn.w1.weight`
+2025-12-04 22:32:47,570 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.49.ffn.w3.weight`
+2025-12-04 22:32:47,570 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.49.ffn.w2.weight`
+2025-12-04 22:32:47,570 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.50.ln1.weight`
+2025-12-04 22:32:47,570 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.50.attn.q_proj.weight`
+2025-12-04 22:32:47,570 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.50.attn.k_proj.weight`
+2025-12-04 22:32:47,570 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.50.attn.v_proj.weight`
+2025-12-04 22:32:47,570 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.50.attn.output_proj.weight`
+2025-12-04 22:32:47,571 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.50.ln2.weight`
+2025-12-04 22:32:47,571 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.50.ffn.w1.weight`
+2025-12-04 22:32:47,571 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.50.ffn.w3.weight`
+2025-12-04 22:32:47,572 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.50.ffn.w2.weight`
+2025-12-04 22:32:47,572 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.51.ln1.weight`
+2025-12-04 22:32:47,572 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.51.attn.q_proj.weight`
+2025-12-04 22:32:47,572 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.51.attn.k_proj.weight`
+2025-12-04 22:32:47,572 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.51.attn.v_proj.weight`
+2025-12-04 22:32:47,572 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.51.attn.output_proj.weight`
+2025-12-04 22:32:47,572 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.51.ln2.weight`
+2025-12-04 22:32:47,573 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.51.ffn.w1.weight`
+2025-12-04 22:32:47,573 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.51.ffn.w3.weight`
+2025-12-04 22:32:47,573 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.51.ffn.w2.weight`
+2025-12-04 22:32:47,573 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.52.ln1.weight`
+2025-12-04 22:32:47,573 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.52.attn.q_proj.weight`
+2025-12-04 22:32:47,574 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.52.attn.k_proj.weight`
+2025-12-04 22:32:47,574 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.52.attn.v_proj.weight`
+2025-12-04 22:32:47,574 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.52.attn.output_proj.weight`
+2025-12-04 22:32:47,574 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.52.ln2.weight`
+2025-12-04 22:32:47,574 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.52.ffn.w1.weight`
+2025-12-04 22:32:47,575 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.52.ffn.w3.weight`
+2025-12-04 22:32:47,575 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.52.ffn.w2.weight`
+2025-12-04 22:32:47,575 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.53.ln1.weight`
+2025-12-04 22:32:47,575 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.53.attn.q_proj.weight`
+2025-12-04 22:32:47,575 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.53.attn.k_proj.weight`
+2025-12-04 22:32:47,575 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.53.attn.v_proj.weight`
+2025-12-04 22:32:47,576 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.53.attn.output_proj.weight`
+2025-12-04 22:32:47,576 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.53.ln2.weight`
+2025-12-04 22:32:47,576 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.53.ffn.w1.weight`
+2025-12-04 22:32:47,576 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.53.ffn.w3.weight`
+2025-12-04 22:32:47,577 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.53.ffn.w2.weight`
+2025-12-04 22:32:47,577 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.54.ln1.weight`
+2025-12-04 22:32:47,577 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.54.attn.q_proj.weight`
+2025-12-04 22:32:47,577 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.54.attn.k_proj.weight`
+2025-12-04 22:32:47,577 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.54.attn.v_proj.weight`
+2025-12-04 22:32:47,577 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.54.attn.output_proj.weight`
+2025-12-04 22:32:47,577 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.54.ln2.weight`
+2025-12-04 22:32:47,578 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.54.ffn.w1.weight`
+2025-12-04 22:32:47,578 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.54.ffn.w3.weight`
+2025-12-04 22:32:47,578 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.54.ffn.w2.weight`
+2025-12-04 22:32:47,579 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.55.ln1.weight`
+2025-12-04 22:32:47,579 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.55.attn.q_proj.weight`
+2025-12-04 22:32:47,579 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.55.attn.k_proj.weight`
+2025-12-04 22:32:47,579 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.55.attn.v_proj.weight`
+2025-12-04 22:32:47,579 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.55.attn.output_proj.weight`
+2025-12-04 22:32:47,579 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.55.ln2.weight`
+2025-12-04 22:32:47,579 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.55.ffn.w1.weight`
+2025-12-04 22:32:47,580 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.55.ffn.w3.weight`
+2025-12-04 22:32:47,580 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.55.ffn.w2.weight`
+2025-12-04 22:32:47,580 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.56.ln1.weight`
+2025-12-04 22:32:47,580 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.56.attn.q_proj.weight`
+2025-12-04 22:32:47,580 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.56.attn.k_proj.weight`
+2025-12-04 22:32:47,581 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.56.attn.v_proj.weight`
+2025-12-04 22:32:47,581 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.56.attn.output_proj.weight`
+2025-12-04 22:32:47,581 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.56.ln2.weight`
+2025-12-04 22:32:47,581 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.56.ffn.w1.weight`
+2025-12-04 22:32:47,582 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.56.ffn.w3.weight`
+2025-12-04 22:32:47,582 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.56.ffn.w2.weight`
+2025-12-04 22:32:47,582 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.57.ln1.weight`
+2025-12-04 22:32:47,582 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.57.attn.q_proj.weight`
+2025-12-04 22:32:47,582 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.57.attn.k_proj.weight`
+2025-12-04 22:32:47,582 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.57.attn.v_proj.weight`
+2025-12-04 22:32:47,582 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.57.attn.output_proj.weight`
+2025-12-04 22:32:47,583 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.57.ln2.weight`
+2025-12-04 22:32:47,583 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.57.ffn.w1.weight`
+2025-12-04 22:32:47,583 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.57.ffn.w3.weight`
+2025-12-04 22:32:47,584 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.57.ffn.w2.weight`
+2025-12-04 22:32:47,584 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.58.ln1.weight`
+2025-12-04 22:32:47,584 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.58.attn.q_proj.weight`
+2025-12-04 22:32:47,584 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.58.attn.k_proj.weight`
+2025-12-04 22:32:47,584 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.58.attn.v_proj.weight`
+2025-12-04 22:32:47,584 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.58.attn.output_proj.weight`
+2025-12-04 22:32:47,584 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.58.ln2.weight`
+2025-12-04 22:32:47,585 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.58.ffn.w1.weight`
+2025-12-04 22:32:47,585 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.58.ffn.w3.weight`
+2025-12-04 22:32:47,585 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.58.ffn.w2.weight`
+2025-12-04 22:32:47,585 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.59.ln1.weight`
+2025-12-04 22:32:47,586 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.59.attn.q_proj.weight`
+2025-12-04 22:32:47,586 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.59.attn.k_proj.weight`
+2025-12-04 22:32:47,586 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.59.attn.v_proj.weight`
+2025-12-04 22:32:47,586 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.59.attn.output_proj.weight`
+2025-12-04 22:32:47,586 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.59.ln2.weight`
+2025-12-04 22:32:47,586 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.59.ffn.w1.weight`
+2025-12-04 22:32:47,587 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.59.ffn.w3.weight`
+2025-12-04 22:32:47,587 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `layers.59.ffn.w2.weight`
+2025-12-04 22:32:47,587 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `ln_final.weight`
+2025-12-04 22:32:47,589 memopt.mixprec_offload WARNING Overflow detected in gradient of parameter `lm_head.weight`
+2025-12-04 22:32:47,592 memopt.mixprec_offload WARNING Skipping optimizer step due to gradient overflow. Gradients have been cleared.
+Arguments: Namespace(model_name='large/60layers', ckpt_strat='Attention', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking large/60layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 60, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}
+Context length: 256, Batch size: 4
+transformer_cls: AttnCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 6.52 GB allocated, 6.62 GB reserved
+After trainer creation: 6.52 GB allocated, 6.62 GB reserved
+After data creation: 6.52 GB allocated, 6.62 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 6.63 GB allocated, 20.03 GB reserved
+Peak during warmup: 13.79 GB allocated, 20.03 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 6.63 GB allocated, 19.98 GB reserved
+  Peak:    13.93 GB allocated, 20.03 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    13.93 GB
+
+Peak GPU Memory (reserved):
+  With offload:    20.03 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Attention_20251204_223247.csv
+============================================================
+Arguments: Namespace(model_name='xlarge', ckpt_strat='Attention', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 48, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: AttnCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 7.33 GB allocated, 7.52 GB reserved
+After trainer creation: 7.33 GB allocated, 7.52 GB reserved
+After data creation: 7.33 GB allocated, 7.52 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 7.44 GB allocated, 21.73 GB reserved
+Peak during warmup: 15.35 GB allocated, 21.73 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 7.44 GB allocated, 21.73 GB reserved
+  Peak:    15.34 GB allocated, 21.73 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    15.34 GB
+
+Peak GPU Memory (reserved):
+  With offload:    21.73 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Attention_20251204_223343.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/52layers', ckpt_strat='Attention', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/52layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 52, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: AttnCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 7.89 GB allocated, 8.10 GB reserved
+After trainer creation: 7.89 GB allocated, 8.10 GB reserved
+After data creation: 7.89 GB allocated, 8.10 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 8.00 GB allocated, 17.46 GB reserved
+Peak during warmup: 16.47 GB allocated, 23.06 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 8.00 GB allocated, 19.00 GB reserved
+  Peak:    16.47 GB allocated, 23.07 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    16.47 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.07 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Attention_20251204_223446.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/56layers', ckpt_strat='Attention', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/56layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 56, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: AttnCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 8.45 GB allocated, 8.67 GB reserved
+After trainer creation: 8.45 GB allocated, 8.67 GB reserved
+After data creation: 8.45 GB allocated, 8.67 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 8.56 GB allocated, 19.51 GB reserved
+Peak during warmup: 17.60 GB allocated, 23.20 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 8.56 GB allocated, 20.73 GB reserved
+  Peak:    17.59 GB allocated, 23.20 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    17.59 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.20 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Attention_20251204_223551.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/60layers', ckpt_strat='Attention', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/60layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 60, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: AttnCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 9.01 GB allocated, 9.25 GB reserved
+After trainer creation: 9.01 GB allocated, 9.25 GB reserved
+After data creation: 9.01 GB allocated, 9.25 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 9.13 GB allocated, 22.24 GB reserved
+Peak during warmup: 18.72 GB allocated, 23.20 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 9.13 GB allocated, 19.76 GB reserved
+  Peak:    18.71 GB allocated, 23.20 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    18.71 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.20 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Attention_20251204_223700.csv
+============================================================
+Arguments: Namespace(model_name='large/48layers', ckpt_strat='FFN', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking large/48layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 48, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}
+Context length: 256, Batch size: 4
+transformer_cls: FFNCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 5.31 GB allocated, 5.39 GB reserved
+After trainer creation: 5.31 GB allocated, 5.39 GB reserved
+After data creation: 5.31 GB allocated, 5.39 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 5.42 GB allocated, 16.00 GB reserved
+Peak during warmup: 11.19 GB allocated, 16.00 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 5.42 GB allocated, 16.00 GB reserved
+  Peak:    11.21 GB allocated, 16.00 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    11.21 GB
+
+Peak GPU Memory (reserved):
+  With offload:    16.00 GB
+
+============================================================
+Results exported to: results/memory_benchmark_FFN_20251204_223732.csv
+============================================================
+Arguments: Namespace(model_name='large/52layers', ckpt_strat='FFN', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking large/52layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 52, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}
+Context length: 256, Batch size: 4
+transformer_cls: FFNCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 5.71 GB allocated, 5.81 GB reserved
+After trainer creation: 5.71 GB allocated, 5.81 GB reserved
+After data creation: 5.71 GB allocated, 5.81 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 5.82 GB allocated, 17.18 GB reserved
+Peak during warmup: 12.00 GB allocated, 17.18 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 5.82 GB allocated, 17.26 GB reserved
+  Peak:    12.01 GB allocated, 17.26 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    12.01 GB
+
+Peak GPU Memory (reserved):
+  With offload:    17.26 GB
+
+============================================================
+Results exported to: results/memory_benchmark_FFN_20251204_223802.csv
+============================================================
+Arguments: Namespace(model_name='large/60layers', ckpt_strat='FFN', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking large/60layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 60, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}
+Context length: 256, Batch size: 4
+transformer_cls: FFNCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 6.52 GB allocated, 6.62 GB reserved
+After trainer creation: 6.52 GB allocated, 6.62 GB reserved
+After data creation: 6.52 GB allocated, 6.62 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 6.63 GB allocated, 19.53 GB reserved
+Peak during warmup: 13.61 GB allocated, 19.53 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 6.63 GB allocated, 19.53 GB reserved
+  Peak:    13.63 GB allocated, 19.53 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    13.63 GB
+
+Peak GPU Memory (reserved):
+  With offload:    19.53 GB
+
+============================================================
+Results exported to: results/memory_benchmark_FFN_20251204_223833.csv
+============================================================
+Arguments: Namespace(model_name='xlarge', ckpt_strat='FFN', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 48, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: FFNCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 7.33 GB allocated, 7.52 GB reserved
+After trainer creation: 7.33 GB allocated, 7.52 GB reserved
+After data creation: 7.33 GB allocated, 7.52 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 7.44 GB allocated, 21.40 GB reserved
+Peak during warmup: 15.34 GB allocated, 21.40 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 7.44 GB allocated, 21.41 GB reserved
+  Peak:    15.34 GB allocated, 21.41 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    15.34 GB
+
+Peak GPU Memory (reserved):
+  With offload:    21.41 GB
+
+============================================================
+Results exported to: results/memory_benchmark_FFN_20251204_223929.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/52layers', ckpt_strat='FFN', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/52layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 52, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: FFNCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 7.89 GB allocated, 8.10 GB reserved
+After trainer creation: 7.89 GB allocated, 8.10 GB reserved
+After data creation: 7.89 GB allocated, 8.10 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 8.00 GB allocated, 23.00 GB reserved
+Peak during warmup: 16.46 GB allocated, 23.00 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 8.00 GB allocated, 23.00 GB reserved
+  Peak:    16.46 GB allocated, 23.00 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    16.46 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.00 GB
+
+============================================================
+Results exported to: results/memory_benchmark_FFN_20251204_224031.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/56layers', ckpt_strat='FFN', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/56layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 56, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: FFNCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 8.45 GB allocated, 8.67 GB reserved
+After trainer creation: 8.45 GB allocated, 8.67 GB reserved
+After data creation: 8.45 GB allocated, 8.67 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 8.56 GB allocated, 19.16 GB reserved
+Peak during warmup: 17.59 GB allocated, 23.19 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 8.56 GB allocated, 20.88 GB reserved
+  Peak:    17.59 GB allocated, 23.20 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    17.59 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.20 GB
+
+============================================================
+Results exported to: results/memory_benchmark_FFN_20251204_224136.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/60layers', ckpt_strat='FFN', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/60layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 60, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: FFNCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 9.01 GB allocated, 9.25 GB reserved
+After trainer creation: 9.01 GB allocated, 9.25 GB reserved
+After data creation: 9.01 GB allocated, 9.25 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 9.13 GB allocated, 21.24 GB reserved
+Peak during warmup: 18.71 GB allocated, 23.21 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 9.13 GB allocated, 22.73 GB reserved
+  Peak:    18.71 GB allocated, 23.18 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    18.71 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.18 GB
+
+============================================================
+Results exported to: results/memory_benchmark_FFN_20251204_224245.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/68layers', ckpt_strat='Blockwise', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/68layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 68, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 10.14 GB allocated, 10.41 GB reserved
+After trainer creation: 10.14 GB allocated, 10.41 GB reserved
+After data creation: 10.14 GB allocated, 10.41 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 10.25 GB allocated, 22.17 GB reserved
+Peak during warmup: 20.96 GB allocated, 23.18 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 10.25 GB allocated, 22.20 GB reserved
+  Peak:    20.97 GB allocated, 23.18 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    20.97 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.18 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Blockwise_20251204_225430.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/72layers', ckpt_strat='Blockwise', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/72layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 72, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 10.70 GB allocated, 10.99 GB reserved
+After trainer creation: 10.70 GB allocated, 10.99 GB reserved
+After data creation: 10.70 GB allocated, 10.99 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 10.81 GB allocated, 23.10 GB reserved
+Peak during warmup: 22.09 GB allocated, 23.20 GB reserved
+
+Running 2 iterations...
+OOM? CUDA out of memory. Tried to allocate 296.00 MiB. GPU 0 has a total capacity of 23.46 GiB of which 155.88 MiB is free. Including non-PyTorch memory, this process has 23.27 GiB memory in use. Of the allocated memory 21.80 GiB is allocated by PyTorch, and 1.25 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Arguments: Namespace(model_name='xlarge/76layers', ckpt_strat='Blockwise', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/76layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 76, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 11.26 GB allocated, 11.56 GB reserved
+After trainer creation: 11.26 GB allocated, 11.56 GB reserved
+After data creation: 11.26 GB allocated, 11.56 GB reserved
+
+Warmup (1 iterations)...
+OOM? CUDA out of memory. Tried to allocate 24.00 MiB. GPU 0 has a total capacity of 23.46 GiB of which 19.88 MiB is free. Including non-PyTorch memory, this process has 23.40 GiB memory in use. Of the allocated memory 22.13 GiB is allocated by PyTorch, and 1.05 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Arguments: Namespace(model_name='xlarge/80layers', ckpt_strat='Blockwise', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/80layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 80, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 11.83 GB allocated, 12.14 GB reserved
+After trainer creation: 11.83 GB allocated, 12.14 GB reserved
+After data creation: 11.83 GB allocated, 12.14 GB reserved
+
+Warmup (1 iterations)...
+OOM? CUDA out of memory. Tried to allocate 36.00 MiB. GPU 0 has a total capacity of 23.46 GiB of which 31.88 MiB is free. Including non-PyTorch memory, this process has 23.39 GiB memory in use. Of the allocated memory 21.97 GiB is allocated by PyTorch, and 1.21 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Arguments: Namespace(model_name='xlarge/68layers', ckpt_strat='Attention', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/68layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 68, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: AttnCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 10.14 GB allocated, 10.41 GB reserved
+After trainer creation: 10.14 GB allocated, 10.41 GB reserved
+After data creation: 10.14 GB allocated, 10.41 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 10.25 GB allocated, 22.41 GB reserved
+Peak during warmup: 20.98 GB allocated, 23.22 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 10.25 GB allocated, 22.28 GB reserved
+  Peak:    20.97 GB allocated, 23.19 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    20.97 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.19 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Attention_20251204_225756.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/72layers', ckpt_strat='Attention', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/72layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 72, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: AttnCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 10.70 GB allocated, 10.99 GB reserved
+After trainer creation: 10.70 GB allocated, 10.99 GB reserved
+After data creation: 10.70 GB allocated, 10.99 GB reserved
+
+Warmup (1 iterations)...
+OOM? CUDA out of memory. Tried to allocate 74.00 MiB. GPU 0 has a total capacity of 23.46 GiB of which 29.88 MiB is free. Including non-PyTorch memory, this process has 23.39 GiB memory in use. Of the allocated memory 21.96 GiB is allocated by PyTorch, and 1.21 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Arguments: Namespace(model_name='xlarge/76layers', ckpt_strat='Attention', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/76layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 76, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: AttnCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 11.26 GB allocated, 11.56 GB reserved
+After trainer creation: 11.26 GB allocated, 11.56 GB reserved
+After data creation: 11.26 GB allocated, 11.56 GB reserved
+
+Warmup (1 iterations)...
+OOM? CUDA out of memory. Tried to allocate 24.00 MiB. GPU 0 has a total capacity of 23.46 GiB of which 11.88 MiB is free. Including non-PyTorch memory, this process has 23.45 GiB memory in use. Of the allocated memory 22.65 GiB is allocated by PyTorch, and 592.04 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Arguments: Namespace(model_name='xlarge/80layers', ckpt_strat='Attention', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/80layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 80, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: AttnCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 11.83 GB allocated, 12.14 GB reserved
+After trainer creation: 11.83 GB allocated, 12.14 GB reserved
+After data creation: 11.83 GB allocated, 12.14 GB reserved
+
+Warmup (1 iterations)...
+OOM? CUDA out of memory. Tried to allocate 18.00 MiB. GPU 0 has a total capacity of 23.46 GiB of which 5.88 MiB is free. Including non-PyTorch memory, this process has 23.45 GiB memory in use. Of the allocated memory 22.67 GiB is allocated by PyTorch, and 586.12 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Arguments: Namespace(model_name='xlarge/68layers', ckpt_strat='FFN', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/68layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 68, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: FFNCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 10.14 GB allocated, 10.41 GB reserved
+After trainer creation: 10.14 GB allocated, 10.41 GB reserved
+After data creation: 10.14 GB allocated, 10.41 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 10.25 GB allocated, 22.19 GB reserved
+Peak during warmup: 20.96 GB allocated, 23.21 GB reserved
+
+Running 2 iterations...
+OOM? CUDA out of memory. Tried to allocate 74.00 MiB. GPU 0 has a total capacity of 23.46 GiB of which 13.88 MiB is free. Including non-PyTorch memory, this process has 23.41 GiB memory in use. Of the allocated memory 20.82 GiB is allocated by PyTorch, and 2.37 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Arguments: Namespace(model_name='xlarge/72layers', ckpt_strat='FFN', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/72layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 72, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: FFNCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 10.70 GB allocated, 10.99 GB reserved
+After trainer creation: 10.70 GB allocated, 10.99 GB reserved
+After data creation: 10.70 GB allocated, 10.99 GB reserved
+
+Warmup (1 iterations)...
+OOM? CUDA out of memory. Tried to allocate 74.00 MiB. GPU 0 has a total capacity of 23.46 GiB of which 41.88 MiB is free. Including non-PyTorch memory, this process has 23.38 GiB memory in use. Of the allocated memory 21.87 GiB is allocated by PyTorch, and 1.29 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Arguments: Namespace(model_name='xlarge/76layers', ckpt_strat='FFN', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/76layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 76, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: FFNCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 11.26 GB allocated, 11.56 GB reserved
+After trainer creation: 11.26 GB allocated, 11.56 GB reserved
+After data creation: 11.26 GB allocated, 11.56 GB reserved
+
+Warmup (1 iterations)...
+OOM? CUDA out of memory. Tried to allocate 36.00 MiB. GPU 0 has a total capacity of 23.46 GiB of which 17.88 MiB is free. Including non-PyTorch memory, this process has 23.41 GiB memory in use. Of the allocated memory 21.78 GiB is allocated by PyTorch, and 1.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Arguments: Namespace(model_name='xlarge/80layers', ckpt_strat='FFN', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/80layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 80, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: FFNCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 11.83 GB allocated, 12.14 GB reserved
+After trainer creation: 11.83 GB allocated, 12.14 GB reserved
+After data creation: 11.83 GB allocated, 12.14 GB reserved
+
+Warmup (1 iterations)...
+OOM? CUDA out of memory. Tried to allocate 12.00 MiB. GPU 0 has a total capacity of 23.46 GiB of which 1.88 MiB is free. Including non-PyTorch memory, this process has 23.46 GiB memory in use. Of the allocated memory 22.57 GiB is allocated by PyTorch, and 693.72 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Arguments: Namespace(model_name='xlarge/64layers', ckpt_strat='FFN', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/64layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 64, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: FFNCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 9.58 GB allocated, 9.83 GB reserved
+After trainer creation: 9.58 GB allocated, 9.83 GB reserved
+After data creation: 9.58 GB allocated, 9.83 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 9.69 GB allocated, 20.99 GB reserved
+Peak during warmup: 19.84 GB allocated, 23.22 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 9.69 GB allocated, 23.15 GB reserved
+  Peak:    19.84 GB allocated, 23.19 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    19.84 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.19 GB
+
+============================================================
+Results exported to: results/memory_benchmark_FFN_20251204_230353.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/66layers', ckpt_strat='FFN', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/66layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 66, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: FFNCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 9.86 GB allocated, 10.12 GB reserved
+After trainer creation: 9.86 GB allocated, 10.12 GB reserved
+After data creation: 9.86 GB allocated, 10.12 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 9.97 GB allocated, 22.02 GB reserved
+Peak during warmup: 20.40 GB allocated, 23.22 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 9.97 GB allocated, 23.17 GB reserved
+  Peak:    20.40 GB allocated, 23.19 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    20.40 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.19 GB
+
+============================================================
+Results exported to: results/memory_benchmark_FFN_20251204_230509.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/64layers', ckpt_strat='FFN', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/64layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 64, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: FFNCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 9.58 GB allocated, 9.83 GB reserved
+After trainer creation: 9.58 GB allocated, 9.83 GB reserved
+After data creation: 9.58 GB allocated, 9.83 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 9.69 GB allocated, 20.99 GB reserved
+Peak during warmup: 19.84 GB allocated, 23.22 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 9.69 GB allocated, 23.15 GB reserved
+  Peak:    19.84 GB allocated, 23.19 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    19.84 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.19 GB
+
+============================================================
+Results exported to: results/memory_benchmark_FFN_20251204_230703.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/67layers', ckpt_strat='FFN', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/67layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 67, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: FFNCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 10.00 GB allocated, 10.26 GB reserved
+After trainer creation: 10.00 GB allocated, 10.26 GB reserved
+After data creation: 10.00 GB allocated, 10.26 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 10.11 GB allocated, 22.62 GB reserved
+Peak during warmup: 20.68 GB allocated, 23.21 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 10.11 GB allocated, 22.95 GB reserved
+  Peak:    20.68 GB allocated, 23.20 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    20.68 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.20 GB
+
+============================================================
+Results exported to: results/memory_benchmark_FFN_20251204_230819.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/69layers', ckpt_strat='Blockwise', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/69layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 69, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 10.28 GB allocated, 10.55 GB reserved
+After trainer creation: 10.28 GB allocated, 10.55 GB reserved
+After data creation: 10.28 GB allocated, 10.55 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 10.39 GB allocated, 22.49 GB reserved
+Peak during warmup: 21.25 GB allocated, 23.19 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 10.39 GB allocated, 22.49 GB reserved
+  Peak:    21.25 GB allocated, 23.19 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    21.25 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.19 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Blockwise_20251204_231314.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/70layers', ckpt_strat='Blockwise', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/70layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 70, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 10.42 GB allocated, 10.70 GB reserved
+After trainer creation: 10.42 GB allocated, 10.70 GB reserved
+After data creation: 10.42 GB allocated, 10.70 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 10.53 GB allocated, 22.79 GB reserved
+Peak during warmup: 21.53 GB allocated, 23.21 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 10.53 GB allocated, 22.79 GB reserved
+  Peak:    21.53 GB allocated, 23.17 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    21.53 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.17 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Blockwise_20251204_231433.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/71layers', ckpt_strat='Blockwise', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/71layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 71, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 10.56 GB allocated, 10.84 GB reserved
+After trainer creation: 10.56 GB allocated, 10.84 GB reserved
+After data creation: 10.56 GB allocated, 10.84 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 10.67 GB allocated, 23.12 GB reserved
+Peak during warmup: 21.81 GB allocated, 23.19 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 10.67 GB allocated, 23.12 GB reserved
+  Peak:    21.81 GB allocated, 23.19 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    21.81 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.19 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Blockwise_20251204_231553.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/69layers', ckpt_strat='Attention', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/69layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 69, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: AttnCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 10.28 GB allocated, 10.55 GB reserved
+After trainer creation: 10.28 GB allocated, 10.55 GB reserved
+After data creation: 10.28 GB allocated, 10.55 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 10.39 GB allocated, 22.50 GB reserved
+Peak during warmup: 21.26 GB allocated, 23.23 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 10.39 GB allocated, 22.80 GB reserved
+  Peak:    21.25 GB allocated, 23.20 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    21.25 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.20 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Attention_20251204_231712.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/70layers', ckpt_strat='Attention', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/70layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 70, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: AttnCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 10.42 GB allocated, 10.70 GB reserved
+After trainer creation: 10.42 GB allocated, 10.70 GB reserved
+After data creation: 10.42 GB allocated, 10.70 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 10.53 GB allocated, 22.99 GB reserved
+Peak during warmup: 21.54 GB allocated, 23.22 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 10.53 GB allocated, 22.61 GB reserved
+  Peak:    21.53 GB allocated, 23.20 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    21.53 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.20 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Attention_20251204_231832.csv
+============================================================
+Arguments: Namespace(model_name='xlarge/71layers', ckpt_strat='Attention', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking xlarge/71layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 71, 'd_model': 1536, 'num_heads': 24, 'd_ff': 6144}
+Context length: 256, Batch size: 4
+transformer_cls: AttnCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 10.56 GB allocated, 10.84 GB reserved
+After trainer creation: 10.56 GB allocated, 10.84 GB reserved
+After data creation: 10.56 GB allocated, 10.84 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 10.67 GB allocated, 23.08 GB reserved
+Peak during warmup: 21.82 GB allocated, 23.23 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 10.67 GB allocated, 23.04 GB reserved
+  Peak:    21.82 GB allocated, 23.20 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    21.82 GB
+
+Peak GPU Memory (reserved):
+  With offload:    23.20 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Attention_20251204_231951.csv
+============================================================
+Arguments: Namespace(model_name='large/42layers', ckpt_strat='Blockwise', result_csv='mem_allopts.csv')
+GPU Memory Benchmarking: Transformer models with and without CPU offload
+Device: cuda
+GPU: NVIDIA TITAN RTX
+Total GPU Memory: 23.46 GiB
+
+============================================================
+Memory Benchmarking large/42layers
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 42, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}
+Context length: 256, Batch size: 4
+transformer_cls: BlockwiseCheckpointedTransformer
+
+--- WITH CPU Offload ---
+After model creation: 4.71 GB allocated, 4.78 GB reserved
+After trainer creation: 4.71 GB allocated, 4.78 GB reserved
+After data creation: 4.71 GB allocated, 4.78 GB reserved
+
+Warmup (1 iterations)...
+After warmup: 4.82 GB allocated, 11.88 GB reserved
+Peak during warmup: 9.98 GB allocated, 11.88 GB reserved
+
+Running 2 iterations...
+
+Final memory usage:
+  Current: 4.82 GB allocated, 11.89 GB reserved
+  Peak:    9.98 GB allocated, 11.89 GB reserved
+
+============================================================
+Memory Comparison Summary
+============================================================
+
+Peak GPU Memory (allocated):
+  With offload:    9.98 GB
+
+Peak GPU Memory (reserved):
+  With offload:    11.89 GB
+
+============================================================
+Results exported to: results/memory_benchmark_Blockwise_20251204_234637.csv
+============================================================

@@ -170,12 +170,14 @@ def plot_ckpt_memory(
         "Blockwise": "#1f77b4",  # blue
         "Attention": "#ff7f0e",  # orange
         "FFN": "#2ca02c",  # green
+        "All Optimizations": "#ff7f0e",  # orange
+        "No Optimizations": "#1f77b4",  # blue
     }
     model_size_to_param_count = get_model_size_to_param_count_map()
 
     bar_width = defaults.get("bar_width", 2)
     inner_gap = 0.0  # gap between bars *inside* a group
-    group_gap = 1  # extra gap between groups
+    group_gap = defaults.get("group_gap", 1)  # extra gap between groups
 
     fig, ax = plt.subplots(
         figsize=(defaults.get("fig_width", 15), defaults.get("fig_height", 5))
@@ -232,11 +234,19 @@ def plot_ckpt_memory(
                 param_count_str = f"{param_count/1000:.1f}B"
             else:
                 param_count_str = f"{param_count:.1f}M"
-            group_names.append(f"Transformer-\n{model_size}\n({param_count_str})")
+            model_size_str = f"Transformer-\n{model_size}\n({param_count_str})"
+            if defaults.get("model_size_format") == "size_only":
+                model_size_str = f"{param_count_str}"
+            group_names.append(model_size_str)
             current_x += group_gap
 
     ax.set_ylabel("Peak memory (GB)")
-    ax.set_title("Peak Memory Usage for Different Activation Checkpointing Strategies")
+    ax.set_title(
+        defaults.get(
+            "title",
+            "Peak Memory Usage for Different Activation Checkpointing Strategies",
+        )
+    )
 
     # No per-bar tick labels
     ax.set_xticks([])
@@ -254,7 +264,13 @@ def plot_ckpt_memory(
         )
 
     # Legend for strategies (colors)
-    ax.legend(title="Checkpoint strategy", loc="upper left", bbox_to_anchor=(1.02, 1.0))
+    legend_args = {
+        "loc": "upper left",
+        "bbox_to_anchor": (1.02, 1.0),
+    }
+    if defaults.get("use_legend_title", True):
+        legend_args["title"] = "Checkpoint strategy"
+    ax.legend(**legend_args)
 
     plt.tight_layout(h_pad=2.0)
     plt.savefig(filename)
@@ -290,6 +306,26 @@ def load_ckpt_stats_from_csv(
     return stats
 
 
+def load_stats_from_allopts_csv(path: str) -> dict[str, dict[str, float]]:
+    stats: dict[str, dict[str, float]] = {}
+
+    with open(path, newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            model_name = row["model_name"].strip()
+            ckpt_strat = row["ckpt_strat"].strip()
+            mem = row["peak_allocated_with_offload_gib"].strip()
+            if ckpt_strat == "No Optimizations":
+                # continue
+                mem = float(mem) / (1024**3)  # convert bytes to GiB
+
+            if model_name not in stats:
+                stats[model_name] = {}
+            stats[model_name][ckpt_strat] = float(mem)  # in GiB
+
+    return stats
+
+
 if __name__ == "__main__":
     import sys
     import os
@@ -308,7 +344,25 @@ if __name__ == "__main__":
     # plot_ckpt_times(model_dfs, os.path.join(results_dir, "latency_actckpt.png"))
 
     for file in os.listdir(results_dir):
-        if file.startswith("mem") and "allopts" in file and file.endswith(".csv"):
+        if file == "mem.csv":
+            stats = load_stats_from_allopts_csv(os.path.join(results_dir, file))
+            for model_size, ckpt_dict in stats.items():
+                for ckpt_strat, mem_gib in ckpt_dict.items():
+                    # convert GB back to bytes
+                    ckpt_dict[ckpt_strat] = mem_gib * 1024**3
+            print(stats)
+            plot_ckpt_memory(
+                stats,
+                os.path.join(results_dir, "mem_allopts.png"),
+                order=["No Optimizations", "All Optimizations"],
+                title="Max Trainable Model & Corresponding Peak Memory",
+                bar_width=1,
+                fig_width=8,
+                group_gap=1,
+                model_size_format="size_only",
+                use_legend_title=False,
+            )
+        elif file.startswith("mem") and "allopts" in file and file.endswith(".csv"):
             stats = load_ckpt_stats_from_csv(
                 os.path.join(results_dir, file),
                 cols={"peak_allocated_with_offload_gb": "All Optimizations"},
