@@ -146,14 +146,23 @@ def plot_ckpt_times(model_dfs: dict[str, pd.DataFrame], filename: str) -> None:
     plt.savefig(filename)
 
 
-def plot_ckpt_memory(stats: dict[str, dict[str, float]], filename: str) -> None:
+def plot_ckpt_memory(
+    stats: dict[str, dict[str, float]],
+    filename: str,
+    order: list[str] | None = None,
+    stat_unit_ratio_to_gb: float = 1e9,
+    **defaults,
+) -> None:
     """
     Args:
         stats: dict mapping model_size (str) -> dict mapping
             ckpt_strat (str) -> MemoryStats.max_allocated_bytes
         filename: str, the name of the output image file
     """
-    ckpt_order = ["None", "Blockwise", "Attention", "FFN"]
+    if order is None:
+        ckpt_order = ["None", "Blockwise", "Attention", "FFN"]
+    else:
+        ckpt_order = order
 
     # Fixed colors: same color for the same strategy across all groups
     ckpt_colors = {
@@ -164,11 +173,13 @@ def plot_ckpt_memory(stats: dict[str, dict[str, float]], filename: str) -> None:
     }
     model_size_to_param_count = get_model_size_to_param_count_map()
 
-    bar_width = 2
+    bar_width = defaults.get("bar_width", 2)
     inner_gap = 0.0  # gap between bars *inside* a group
     group_gap = 1  # extra gap between groups
 
-    fig, ax = plt.subplots(figsize=(15, 5))
+    fig, ax = plt.subplots(
+        figsize=(defaults.get("fig_width", 15), defaults.get("fig_height", 5))
+    )
 
     current_x = 0.0
 
@@ -187,7 +198,7 @@ def plot_ckpt_memory(stats: dict[str, dict[str, float]], filename: str) -> None:
                 continue
 
             mem_bytes = ckpt_to_mem[ckpt_strat]
-            mem_gb = mem_bytes / 1e9  # GB, not GiB
+            mem_gb = mem_bytes / stat_unit_ratio_to_gb  # GB, not GiB
 
             x = current_x
 
@@ -196,7 +207,7 @@ def plot_ckpt_memory(stats: dict[str, dict[str, float]], filename: str) -> None:
                 x,
                 mem_gb,
                 width=bar_width,
-                color=ckpt_colors[ckpt_strat],
+                color=ckpt_colors.get(ckpt_strat, "#FF0000"),
                 label=label,
             )
             seen_labels.add(ckpt_strat)
@@ -249,8 +260,14 @@ def plot_ckpt_memory(stats: dict[str, dict[str, float]], filename: str) -> None:
     plt.savefig(filename)
 
 
-def load_ckpt_stats_from_csv(path: str) -> dict[str, dict[str, float]]:
+def load_ckpt_stats_from_csv(
+    path: str, cols: list[str] | dict[str, str] | None = None
+) -> dict[str, dict[str, float]]:
     stats: dict[str, dict[str, float]] = {}
+    if cols is None:
+        cols = ["Blockwise", "Attention", "FFN", "None"]
+    if isinstance(cols, list):
+        cols = {col: col for col in cols}
 
     with open(path, newline="") as f:
         reader = csv.DictReader(f)
@@ -258,13 +275,13 @@ def load_ckpt_stats_from_csv(path: str) -> dict[str, dict[str, float]]:
             model_size = row["model_size"].strip()
             ckpt_dict: dict[str, float] = {}
 
-            for col in ["Blockwise", "Attention", "FFN", "None"]:
+            for col, alias in cols.items():
                 raw = row.get(col, "")
                 if raw is None:
                     continue
                 raw = raw.strip()
                 if raw:  # non-empty cell
-                    ckpt_dict[col] = float(raw)
+                    ckpt_dict[alias] = float(raw)
 
             # only keep models that have at least one value
             if ckpt_dict:
@@ -281,19 +298,36 @@ if __name__ == "__main__":
     assert len(sys.argv) == 2, "Usage: python benchmark_util.py <results_dir>"
     results_dir = sys.argv[1]
 
-    model_dfs = {}
-    for file in os.listdir(results_dir):
-        if file.startswith("latency_ckpt_") and file.endswith(".csv"):
-            model_size = file[len("latency_ckpt_") : -len(".csv")]
-            df = pd.read_csv(os.path.join(results_dir, file))
-            model_dfs[model_size] = df
+    # model_dfs = {}
+    # for file in os.listdir(results_dir):
+    #     if file.startswith("latency_ckpt_") and file.endswith(".csv"):
+    #         model_size = file[len("latency_ckpt_") : -len(".csv")]
+    #         df = pd.read_csv(os.path.join(results_dir, file))
+    #         model_dfs[model_size] = df
 
-    plot_ckpt_times(model_dfs, os.path.join(results_dir, "latency_actckpt.png"))
+    # plot_ckpt_times(model_dfs, os.path.join(results_dir, "latency_actckpt.png"))
 
     for file in os.listdir(results_dir):
-        if file.startswith("mem") and "ckpt" in file and file.endswith(".csv"):
-            stats = load_ckpt_stats_from_csv(os.path.join(results_dir, file))
+        if file.startswith("mem") and "allopts" in file and file.endswith(".csv"):
+            stats = load_ckpt_stats_from_csv(
+                os.path.join(results_dir, file),
+                cols={"peak_allocated_with_offload_gb": "All Optimizations"},
+            )
+            for model_size, ckpt_dict in stats.items():
+                for ckpt_strat, mem_gib in ckpt_dict.items():
+                    # convert GB back to bytes
+                    ckpt_dict[ckpt_strat] = mem_gib * 1024**3
+            print(stats)
             plot_ckpt_memory(
                 stats,
-                os.path.join(results_dir, "mem_ckpt.png"),
+                os.path.join(results_dir, "mem_allopts.png"),
+                order=["All Optimizations"],
+                bar_width=2,
+                fig_width=8,
             )
+        # elif file.startswith("mem") and "ckpt" in file and file.endswith(".csv"):
+        #     stats = load_ckpt_stats_from_csv(os.path.join(results_dir, file))
+        #     plot_ckpt_memory(
+        #         stats,
+        #         os.path.join(results_dir, "mem_ckpt.png"),
+        #     )
