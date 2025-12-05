@@ -41,7 +41,7 @@ CONFIGS = {
     "large": TRANSFORMER_LARGE,
 }
 DEVICE = torch.device("cuda")
-CKPT_STRATEGIES = {
+CKPT_STRATEGIES: dict[str, Type[Transformer]] = {
     "Attention": AttnCheckpointedTransformer,
     "FFN": FFNCheckpointedTransformer,
     "Blockwise": BlockwiseCheckpointedTransformer,

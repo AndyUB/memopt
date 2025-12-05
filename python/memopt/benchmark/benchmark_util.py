@@ -142,6 +142,109 @@ def plot_ckpt_times(model_dfs: dict[str, pd.DataFrame], filename: str) -> None:
     plt.savefig(filename)
 
 
+def plot_ckpt_memory(stats: dict[str, dict[str, float]], filename: str) -> None:
+    """
+    Args:
+        stats: dict mapping model_size (str) -> dict mapping
+            ckpt_strat (str) -> MemoryStats.max_allocated_bytes
+        filename: str, the name of the output image file
+    """
+    ckpt_order = ["None", "Blockwise", "Attention", "FFN"]
+
+    # Fixed colors: same color for the same strategy across all groups
+    ckpt_colors = {
+        "None": "#5B4FA1",  # muted purple
+        "Blockwise": "#1f77b4",  # blue
+        "Attention": "#ff7f0e",  # orange
+        "FFN": "#2ca02c",  # green
+    }
+    model_size_to_param_count = get_model_size_to_param_count_map()
+
+    bar_width = 0.6
+    inner_gap = 0.0  # gap between bars *inside* a group
+    group_gap = 1.0  # extra gap between groups
+
+    fig, ax = plt.subplots(figsize=(10, 5))
+
+    current_x = 0.0
+
+    group_centers = []
+    group_names = []
+
+    seen_labels = set()  # for legend
+
+    # stable iteration over model sizes
+    for model_size in stats.keys():
+        ckpt_to_mem = stats[model_size]
+        group_xs = []
+
+        for ckpt_strat in ckpt_order:
+            if ckpt_strat not in ckpt_to_mem:
+                continue
+
+            mem_bytes = ckpt_to_mem[ckpt_strat]
+            mem_gb = mem_bytes / 1e9  # GB, not GiB
+
+            x = current_x
+
+            label = ckpt_strat if ckpt_strat not in seen_labels else None
+            ax.bar(
+                x,
+                mem_gb,
+                width=bar_width,
+                color=ckpt_colors[ckpt_strat],
+                label=label,
+            )
+            seen_labels.add(ckpt_strat)
+
+            # numeric label on top of bar
+            ax.text(
+                x,
+                mem_gb,
+                f"{mem_gb:.1f}",
+                ha="center",
+                va="bottom",
+                fontsize=8,
+            )
+
+            group_xs.append(x)
+            current_x += bar_width + inner_gap
+
+        if group_xs:
+            group_centers.append(np.mean(group_xs))
+            param_count = model_size_to_param_count[model_size] / 1_000_000
+            if param_count >= 10000:
+                param_count_str = f"{param_count/1000:.1f}B"
+            else:
+                param_count_str = f"{param_count:.1f}M"
+            group_names.append(f"Transformer-{model_size}\n({param_count_str})")
+            current_x += group_gap
+
+    ax.set_ylabel("Peak memory (GB)")
+    ax.set_title("Peak Memory Usage for Different Activation Checkpointing Strategies")
+
+    # No per-bar tick labels
+    ax.set_xticks([])
+    ax.set_xticklabels([])
+
+    # Model size labels centered under each group
+    for center, name in zip(group_centers, group_names):
+        ax.text(
+            center,
+            -0.06,  # adjust if needed
+            name,
+            ha="center",
+            va="top",
+            transform=ax.get_xaxis_transform(),
+        )
+
+    # Legend for strategies (colors)
+    ax.legend(title="Checkpoint strategy", loc="upper left", bbox_to_anchor=(1.02, 1.0))
+
+    plt.tight_layout()
+    plt.savefig(filename)
+
+
 if __name__ == "__main__":
     import sys
     import os
