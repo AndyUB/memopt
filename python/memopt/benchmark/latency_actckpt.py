@@ -1,22 +1,17 @@
 import logging
 import pandas as pd
 import torch
-from typing import Any, Literal, Type
+from typing import Literal, Type
 
 from memopt.benchmark.benchmark_util import plot_ckpt_times, to_df
 from memopt.model.config import (
     DEFAULT_ADAMW_ARGS,
     TRANSFORMER_DEFAULT_BATCH_SIZE,
-    TRANSFORMER_SMALL,
-    TRANSFORMER_LARGE,
     TRANSFORMER_LARGE_SINGLE_PROCESS_CONTEXT_LENGTH,
+    TRAINABLE_TRANSFORMER_CONFIGS as CONFIGS,
+    CKPT_STRATEGIES,
 )
 from memopt.model.optimizer import AdamW, cross_entropy_loss
-from memopt.model.ckpt_transformer import (
-    AttnCheckpointedTransformer,
-    BlockwiseCheckpointedTransformer,
-    FFNCheckpointedTransformer,
-)
 from memopt.model.transformer import Transformer
 from memopt.util import (
     compute_elapses_stats,
@@ -36,17 +31,7 @@ CONTEXT_LENGTH = TRANSFORMER_LARGE_SINGLE_PROCESS_CONTEXT_LENGTH
 BATCH_SIZE = TRANSFORMER_DEFAULT_BATCH_SIZE
 NUM_WARMUP_ITERS = 5
 NUM_TIMING_ITERS = 10
-CONFIGS = {
-    "small": TRANSFORMER_SMALL,
-    "large": TRANSFORMER_LARGE,
-}
 DEVICE = torch.device("cuda")
-CKPT_STRATEGIES: dict[str, Type[Transformer]] = {
-    "Attention": AttnCheckpointedTransformer,
-    "FFN": FFNCheckpointedTransformer,
-    "Blockwise": BlockwiseCheckpointedTransformer,
-    "None": Transformer,
-}
 
 
 def benchmark_transformer_ckpt_latency(

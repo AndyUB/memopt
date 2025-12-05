@@ -1,8 +1,12 @@
+import csv
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import torch
 from typing import Any
+
+from memopt.model.transformer import Transformer
+from memopt.model.config import OOM_TRANSFORMER_CONFIGS, TRAINABLE_TRANSFORMER_CONFIGS
 
 
 def count_params(model: torch.nn.Module) -> int:
@@ -13,12 +17,12 @@ def get_model_size_to_param_count_map() -> dict[str, int]:
     """
     Returns a mapping from model size names to their parameter counts.
     """
-    from memopt.model.transformer import Transformer
-    from memopt.benchmark.latency_actckpt import CONFIGS
 
     size_to_count = {}
-    for size_name, config in CONFIGS.items():
-        model = Transformer(**config)
+    configs = {**OOM_TRANSFORMER_CONFIGS, **TRAINABLE_TRANSFORMER_CONFIGS}
+    meta_device = torch.device("meta")
+    for size_name, config in configs.items():
+        model = Transformer(**config, device=meta_device)
         param_count = count_params(model)
         size_to_count[size_name] = param_count
     return size_to_count
@@ -58,7 +62,7 @@ def plot_ckpt_times(model_dfs: dict[str, pd.DataFrame], filename: str) -> None:
 
     fig, ax = plt.subplots(figsize=(10, 5))
 
-    bar_width = 0.6
+    bar_width = 1.2
     inner_gap = 0.15  # gap between bars *inside* group
     group_gap = 0.6  # extra gap between different model sizes
 
@@ -160,11 +164,11 @@ def plot_ckpt_memory(stats: dict[str, dict[str, float]], filename: str) -> None:
     }
     model_size_to_param_count = get_model_size_to_param_count_map()
 
-    bar_width = 0.6
+    bar_width = 2
     inner_gap = 0.0  # gap between bars *inside* a group
-    group_gap = 1.0  # extra gap between groups
+    group_gap = 1  # extra gap between groups
 
-    fig, ax = plt.subplots(figsize=(10, 5))
+    fig, ax = plt.subplots(figsize=(15, 5))
 
     current_x = 0.0
 
@@ -217,7 +221,7 @@ def plot_ckpt_memory(stats: dict[str, dict[str, float]], filename: str) -> None:
                 param_count_str = f"{param_count/1000:.1f}B"
             else:
                 param_count_str = f"{param_count:.1f}M"
-            group_names.append(f"Transformer-{model_size}\n({param_count_str})")
+            group_names.append(f"Transformer-\n{model_size}\n({param_count_str})")
             current_x += group_gap
 
     ax.set_ylabel("Peak memory (GB)")
@@ -241,8 +245,32 @@ def plot_ckpt_memory(stats: dict[str, dict[str, float]], filename: str) -> None:
     # Legend for strategies (colors)
     ax.legend(title="Checkpoint strategy", loc="upper left", bbox_to_anchor=(1.02, 1.0))
 
-    plt.tight_layout()
+    plt.tight_layout(h_pad=2.0)
     plt.savefig(filename)
+
+
+def load_ckpt_stats_from_csv(path: str) -> dict[str, dict[str, float]]:
+    stats: dict[str, dict[str, float]] = {}
+
+    with open(path, newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            model_size = row["model_size"].strip()
+            ckpt_dict: dict[str, float] = {}
+
+            for col in ["Blockwise", "Attention", "FFN", "None"]:
+                raw = row.get(col, "")
+                if raw is None:
+                    continue
+                raw = raw.strip()
+                if raw:  # non-empty cell
+                    ckpt_dict[col] = float(raw)
+
+            # only keep models that have at least one value
+            if ckpt_dict:
+                stats[model_size] = ckpt_dict
+
+    return stats
 
 
 if __name__ == "__main__":
@@ -261,3 +289,11 @@ if __name__ == "__main__":
             model_dfs[model_size] = df
 
     plot_ckpt_times(model_dfs, os.path.join(results_dir, "latency_actckpt.png"))
+
+    for file in os.listdir(results_dir):
+        if file.startswith("mem") and "ckpt" in file and file.endswith(".csv"):
+            stats = load_ckpt_stats_from_csv(os.path.join(results_dir, file))
+            plot_ckpt_memory(
+                stats,
+                os.path.join(results_dir, "mem_ckpt.png"),
+            )
