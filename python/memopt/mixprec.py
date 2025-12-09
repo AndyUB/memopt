@@ -4,7 +4,7 @@ import torch
 
 from memopt.model.optimizer import AdamW
 from memopt.model.config import DEFAULT_ADAMW_ARGS
-from memopt.python.memopt.util import setup_master_params
+from memopt.util import setup_master_params
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s %(name)s %(levelname)s %(message)s"

@@ -1,0 +1,22 @@
+========== No offload ==========
+Time elapsed: 313.64 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=4096, curr_reserved_bytes=2097152, max_allocated_bytes=4096, max_reserved_bytes=2097152)
+Memory usage (final): MemoryStats(curr_allocated_bytes=17048064, curr_reserved_bytes=23068672, max_allocated_bytes=17053696, max_reserved_bytes=23068672)
+========== With offload ==========
+Time elapsed: 33.23 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=4096, curr_reserved_bytes=2097152, max_allocated_bytes=4096, max_reserved_bytes=2097152)
+Memory usage (final): MemoryStats(curr_allocated_bytes=17044992, curr_reserved_bytes=25165824, max_allocated_bytes=17053696, max_reserved_bytes=25165824)
+With offload: wall time = 33.20 ms, diff = -0.03 ms
+Loss (no offload): 1.8151215314865112
+Loss (with offload): 1.8151215314865112
+========== No offload ==========
+Time elapsed: 409.17 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=781005824, curr_reserved_bytes=836763648, max_allocated_bytes=781005824, max_reserved_bytes=836763648)
+Memory usage (final): MemoryStats(curr_allocated_bytes=2333618176, curr_reserved_bytes=4156555264, max_allocated_bytes=3863382016, max_reserved_bytes=4156555264)
+========== With offload ==========
+Time elapsed: 1222.98 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=781005824, curr_reserved_bytes=994050048, max_allocated_bytes=936193024, max_reserved_bytes=994050048)
+Memory usage (final): MemoryStats(curr_allocated_bytes=1550171648, curr_reserved_bytes=1883242496, max_allocated_bytes=1576302080, max_reserved_bytes=1883242496)
+With offload: wall time = 1222.91 ms, diff = -0.07 ms
+Loss (no offload): 10.830429077148438
+Loss (with offload): 10.830429077148438

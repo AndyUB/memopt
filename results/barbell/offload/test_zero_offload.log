@@ -1,0 +1,137 @@
+2025-12-08 22:52:24,975 memopt.zero_offload WARNING Loss scaling is typically not needed for BF16.
+2025-12-08 22:52:26,524 memopt.zero_offload WARNING Loss scaling is typically not needed for BF16.
+2025-12-08 22:52:27,242 memopt.zero_offload WARNING Overflow detected. Skipping step.
+=== Testing zero offload correctness: dtype=torch.float32, loss_scale=None ===
+========== No offload ==========
+Time elapsed: 313.70 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=4096, curr_reserved_bytes=2097152, max_allocated_bytes=4096, max_reserved_bytes=2097152)
+Memory usage (final): MemoryStats(curr_allocated_bytes=17048064, curr_reserved_bytes=23068672, max_allocated_bytes=17053696, max_reserved_bytes=23068672)
+========== Offload (dtype=torch.float32) ==========
+Time elapsed: 33.30 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=4096, curr_reserved_bytes=2097152, max_allocated_bytes=4096, max_reserved_bytes=2097152)
+Memory usage (final): MemoryStats(curr_allocated_bytes=17044992, curr_reserved_bytes=25165824, max_allocated_bytes=17053696, max_reserved_bytes=25165824)
+With offload: wall time = 33.27 ms, diff = -0.03 ms
+Loss (no offload): 1.3286114931106567
+Loss (with offload): 1.3286114931106567
+Offload step successful: True
+========== No offload ==========
+Time elapsed: 494.15 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=781005824, curr_reserved_bytes=836763648, max_allocated_bytes=781005824, max_reserved_bytes=836763648)
+Memory usage (final): MemoryStats(curr_allocated_bytes=2333618176, curr_reserved_bytes=4156555264, max_allocated_bytes=3863382016, max_reserved_bytes=4156555264)
+========== Offload (dtype=torch.float32) ==========
+Time elapsed: 1499.92 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=781005824, curr_reserved_bytes=994050048, max_allocated_bytes=936193024, max_reserved_bytes=994050048)
+Memory usage (final): MemoryStats(curr_allocated_bytes=1550171648, curr_reserved_bytes=1883242496, max_allocated_bytes=1576304128, max_reserved_bytes=1883242496)
+With offload: wall time = 1499.85 ms, diff = -0.07 ms
+Loss (no offload): 10.830429077148438
+Loss (with offload): 10.830429077148438
+Offload step successful: True
+=== Testing zero offload correctness: dtype=torch.float16, loss_scale=8192 ===
+========== No offload ==========
+Time elapsed: 1.75 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=17043456, curr_reserved_bytes=4156555264, max_allocated_bytes=2333618176, max_reserved_bytes=4156555264)
+Memory usage (final): MemoryStats(curr_allocated_bytes=17048064, curr_reserved_bytes=4156555264, max_allocated_bytes=17053696, max_reserved_bytes=4156555264)
+========== Offload (dtype=torch.float16) ==========
+Time elapsed: 48.27 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=17042944, curr_reserved_bytes=1883242496, max_allocated_bytes=1550171648, max_reserved_bytes=1883242496)
+Memory usage (final): MemoryStats(curr_allocated_bytes=17043968, curr_reserved_bytes=1885339648, max_allocated_bytes=17051648, max_reserved_bytes=1885339648)
+With offload: wall time = 48.24 ms, diff = -0.03 ms
+Loss (no offload): 1.6626189947128296
+Loss (with offload): 1.662109375
+Offload step successful: True
+Skipping parameter correctness check for non-FP32 dtype.
+========== No offload ==========
+Time elapsed: 87.86 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=781005824, curr_reserved_bytes=4156555264, max_allocated_bytes=781005824, max_reserved_bytes=4156555264)
+Memory usage (final): MemoryStats(curr_allocated_bytes=2333618176, curr_reserved_bytes=4156555264, max_allocated_bytes=3864168448, max_reserved_bytes=4156555264)
+========== Offload (dtype=torch.float16) ==========
+Time elapsed: 1628.63 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=421436928, curr_reserved_bytes=1885339648, max_allocated_bytes=936193024, max_reserved_bytes=1885339648)
+Memory usage (final): MemoryStats(curr_allocated_bytes=803267072, curr_reserved_bytes=1998585856, max_allocated_bytes=816337920, max_reserved_bytes=1998585856)
+With offload: wall time = 1628.56 ms, diff = -0.07 ms
+Loss (no offload): 10.830429077148438
+Loss (with offload): 10.8515625
+Offload step successful: True
+Skipping parameter correctness check for non-FP32 dtype.
+=== Testing zero offload correctness: dtype=torch.float16, loss_scale=None ===
+========== No offload ==========
+Time elapsed: 2.01 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=17043456, curr_reserved_bytes=4156555264, max_allocated_bytes=2333618176, max_reserved_bytes=4156555264)
+Memory usage (final): MemoryStats(curr_allocated_bytes=17048064, curr_reserved_bytes=4156555264, max_allocated_bytes=17053696, max_reserved_bytes=4156555264)
+========== Offload (dtype=torch.float16) ==========
+Time elapsed: 2.57 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=17042944, curr_reserved_bytes=1998585856, max_allocated_bytes=803267072, max_reserved_bytes=1998585856)
+Memory usage (final): MemoryStats(curr_allocated_bytes=17043968, curr_reserved_bytes=2000683008, max_allocated_bytes=17051136, max_reserved_bytes=2000683008)
+With offload: wall time = 2.55 ms, diff = -0.02 ms
+Loss (no offload): 1.6626189947128296
+Loss (with offload): 1.662109375
+Offload step successful: True
+Skipping parameter correctness check for non-FP32 dtype.
+========== No offload ==========
+Time elapsed: 83.56 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=781005824, curr_reserved_bytes=4156555264, max_allocated_bytes=781005824, max_reserved_bytes=4156555264)
+Memory usage (final): MemoryStats(curr_allocated_bytes=2333618176, curr_reserved_bytes=4156555264, max_allocated_bytes=3864168448, max_reserved_bytes=4156555264)
+========== Offload (dtype=torch.float16) ==========
+Time elapsed: 1710.61 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=421436928, curr_reserved_bytes=2000683008, max_allocated_bytes=936193024, max_reserved_bytes=2000683008)
+Memory usage (final): MemoryStats(curr_allocated_bytes=803267072, curr_reserved_bytes=2078277632, max_allocated_bytes=816337408, max_reserved_bytes=2078277632)
+With offload: wall time = 1710.57 ms, diff = -0.04 ms
+Loss (no offload): 10.830429077148438
+Loss (with offload): 10.8515625
+Offload step successful: True
+Skipping parameter correctness check for non-FP32 dtype.
+=== Testing zero offload correctness: dtype=torch.bfloat16, loss_scale=8192 ===
+========== No offload ==========
+Time elapsed: 1.85 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=17043456, curr_reserved_bytes=4156555264, max_allocated_bytes=2333618176, max_reserved_bytes=4156555264)
+Memory usage (final): MemoryStats(curr_allocated_bytes=17048064, curr_reserved_bytes=4156555264, max_allocated_bytes=17053696, max_reserved_bytes=4156555264)
+========== Offload (dtype=torch.bfloat16) ==========
+Time elapsed: 5.73 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=17042944, curr_reserved_bytes=2078277632, max_allocated_bytes=803267072, max_reserved_bytes=2078277632)
+Memory usage (final): MemoryStats(curr_allocated_bytes=17043968, curr_reserved_bytes=2080374784, max_allocated_bytes=17051648, max_reserved_bytes=2080374784)
+With offload: wall time = 5.71 ms, diff = -0.02 ms
+Loss (no offload): 1.6626189947128296
+Loss (with offload): 1.6640625
+Offload step successful: True
+Skipping parameter correctness check for non-FP32 dtype.
+========== No offload ==========
+Time elapsed: 121.49 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=781005824, curr_reserved_bytes=4156555264, max_allocated_bytes=781005824, max_reserved_bytes=4156555264)
+Memory usage (final): MemoryStats(curr_allocated_bytes=2333618176, curr_reserved_bytes=4156555264, max_allocated_bytes=3864168448, max_reserved_bytes=4156555264)
+========== Offload (dtype=torch.bfloat16) ==========
+Time elapsed: 243.89 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=421436928, curr_reserved_bytes=2080374784, max_allocated_bytes=936193024, max_reserved_bytes=2080374784)
+Memory usage (final): MemoryStats(curr_allocated_bytes=803267072, curr_reserved_bytes=2157969408, max_allocated_bytes=816337920, max_reserved_bytes=2157969408)
+With offload: wall time = 243.80 ms, diff = -0.09 ms
+Loss (no offload): 10.830429077148438
+Loss (with offload): 10.875
+Offload step successful: False
+Skipping parameter correctness check for non-FP32 dtype.
+=== Testing zero offload correctness: dtype=torch.bfloat16, loss_scale=None ===
+========== No offload ==========
+Time elapsed: 2.83 ms
+2025-12-08 22:52:29,533 memopt.zero_offload WARNING Overflow detected. Skipping step.
+Memory usage (base): MemoryStats(curr_allocated_bytes=17043456, curr_reserved_bytes=4156555264, max_allocated_bytes=2333618176, max_reserved_bytes=4156555264)
+Memory usage (final): MemoryStats(curr_allocated_bytes=17048064, curr_reserved_bytes=4156555264, max_allocated_bytes=17053696, max_reserved_bytes=4156555264)
+========== Offload (dtype=torch.bfloat16) ==========
+Time elapsed: 2.55 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=17042944, curr_reserved_bytes=2157969408, max_allocated_bytes=803267072, max_reserved_bytes=2157969408)
+Memory usage (final): MemoryStats(curr_allocated_bytes=17043968, curr_reserved_bytes=2160066560, max_allocated_bytes=17051136, max_reserved_bytes=2160066560)
+With offload: wall time = 2.53 ms, diff = -0.02 ms
+Loss (no offload): 1.6626189947128296
+Loss (with offload): 1.6640625
+Offload step successful: True
+Skipping parameter correctness check for non-FP32 dtype.
+========== No offload ==========
+Time elapsed: 93.28 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=781005824, curr_reserved_bytes=4156555264, max_allocated_bytes=781005824, max_reserved_bytes=4156555264)
+Memory usage (final): MemoryStats(curr_allocated_bytes=2333618176, curr_reserved_bytes=4156555264, max_allocated_bytes=3864168448, max_reserved_bytes=4156555264)
+========== Offload (dtype=torch.bfloat16) ==========
+Time elapsed: 209.72 ms
+Memory usage (base): MemoryStats(curr_allocated_bytes=421436928, curr_reserved_bytes=2160066560, max_allocated_bytes=936193024, max_reserved_bytes=2160066560)
+Memory usage (final): MemoryStats(curr_allocated_bytes=803267072, curr_reserved_bytes=2237661184, max_allocated_bytes=816337408, max_reserved_bytes=2237661184)
+With offload: wall time = 209.65 ms, diff = -0.07 ms
+Loss (no offload): 10.830429077148438
+Loss (with offload): 10.875
+Offload step successful: False
+Skipping parameter correctness check for non-FP32 dtype.

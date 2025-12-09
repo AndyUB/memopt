@@ -54,6 +54,21 @@ def setup_master_params(
     return master_params
 
 
+def assert_model_dtype(model: torch.nn.Module, dtype: torch.dtype) -> None:
+    """
+    Assert that all model parameters are of the specified dtype.
+
+    Args:
+        model: The model to check.
+        dtype: The expected data type.
+    """
+    for param in model.parameters():
+        if param.dtype != dtype:
+            raise ValueError(
+                f"Model parameter has dtype {param.dtype}, expected {dtype}."
+            )
+
+
 @dataclass
 class MemoryStats:
     curr_allocated_bytes: int

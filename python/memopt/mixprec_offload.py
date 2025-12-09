@@ -32,21 +32,6 @@ def setup_master_params(model: torch.nn.Module) -> list[torch.Tensor]:
     return master_params
 
 
-def assert_model_dtype(model: torch.nn.Module, dtype: torch.dtype) -> None:
-    """
-    Assert that all model parameters are of the specified dtype.
-
-    Args:
-        model: The model to check.
-        dtype: The expected data type.
-    """
-    for param in model.parameters():
-        if param.dtype != dtype:
-            raise ValueError(
-                f"Model parameter has dtype {param.dtype}, expected {dtype}."
-            )
-
-
 class MixedPrecOffloadTrainer:
     def __init__(
         self,
@@ -75,8 +60,7 @@ class MixedPrecOffloadTrainer:
         self.lower_precision_dtype = lower_precision_dtype
 
         self.mixed_precision_enabled = (
-            self.lower_precision_dtype != torch.float32
-            and self.device.type == "cuda"
+            self.lower_precision_dtype != torch.float32 and self.device.type == "cuda"
         )
         if self.lower_precision_dtype != torch.float32 and self.device.type != "cuda":
             logger.warning(
@@ -240,9 +224,7 @@ class MixedPrecOffloadTrainer:
         for name, param in self.model.named_parameters():
             if param.grad is not None and not torch.isfinite(param.grad).all():
                 has_overflow = True
-                logger.warning(
-                    f"Overflow detected in gradient of parameter `{name}`"
-                )
+                logger.warning(f"Overflow detected in gradient of parameter `{name}`")
         return has_overflow
 
     def zero_grad(self):
@@ -301,9 +283,9 @@ if __name__ == "__main__":
         with nvtx.range("optimizer_step"):
             ok = trainer.step(check_overflow=True)
 
-
     # time 5 iters of non-offload
     import time
+
     start = time.time()
     for step in range(5):
         (x_cast,) = trainer.cast_inputs(x)
