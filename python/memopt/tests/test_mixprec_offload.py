@@ -128,6 +128,7 @@ def test_cpu_offload_moves_grads_to_cpu():
     ok = trainer.step(check_overflow=True)
     assert ok is True
 
+
 @pytest.mark.skipif(not torch.cuda.is_available(), reason="CPU offload test needs CUDA")
 def test_cpu_offload_fp32_only():
     """
@@ -142,8 +143,8 @@ def test_cpu_offload_fp32_only():
 
     trainer = MixedPrecOffloadTrainer(
         model,
-        lower_precision_dtype=None,   # FP32 only, no AMP
-        use_cpu_offload=True,         # CPUAdamW + offloaded state
+        lower_precision_dtype=None,  # FP32 only, no AMP
+        use_cpu_offload=True,  # CPUAdamW + offloaded state
         use_grad_scaler=False,
     )
 
@@ -183,11 +184,14 @@ def test_cpu_offload_fp32_only():
                 if not isinstance(value, torch.Tensor):
                     continue
                 saw_cpu_state_tensor = True
-                assert value.device.type == "cpu", f"State tensor '{name}' must be on CPU"
+                assert (
+                    value.device.type == "cpu"
+                ), f"State tensor '{name}' must be on CPU"
 
     # Make sure we actually saw at least one state tensor (i.e., Adam moments exist)
-    assert saw_cpu_state_tensor, "Expected at least one CPU optimizer state tensor (e.g., m or v)."
+    assert (
+        saw_cpu_state_tensor
+    ), "Expected at least one CPU optimizer state tensor (e.g., m or v)."
 
     # Params should still live on GPU
     assert {p.device.type for p in model.parameters()} == {"cuda"}
-
