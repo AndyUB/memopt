@@ -1,0 +1,9 @@
+benchmark_name,model_cls,avg_elapse_ms,peak_mem_bytes
+Baseline,Transformer,899.26083984375,21308723712
+Activation Checkpointing (FFN),FFNCheckpointedTransformer,1023.3681640625,18538955776
+CPU Offloading + Mixed Precision (FP16),Transformer,2212.1998046875,8793603584
+CPU Offloading + Mixed Precision (FP16) + Activation Checkpointing (FFN),FFNCheckpointedTransformer,2764.7779296875,6529187328
+CPU Offloading,Transformer,5548.7359375,16823590400
+CPU Offloading + Activation Checkpointing (FFN),FFNCheckpointedTransformer,5587.803125,12670164480
+Mixed Precision (FP16),Transformer,521.751708984375,20608036864
+Mixed Precision (FP16) + Activation Checkpointing (FFN),FFNCheckpointedTransformer,815.808251953125,18450193408
