@@ -94,34 +94,43 @@ def benchmark_model(model_config, model_name, results_list):
     backward_times = []
     step_times = []
     
+    # Create all CUDA events upfront
+    forward_start_events = [torch.cuda.Event(enable_timing=True) for _ in range(NUM_TIMING_ITERS)]
+    forward_end_events = [torch.cuda.Event(enable_timing=True) for _ in range(NUM_TIMING_ITERS)]
+    backward_start_events = [torch.cuda.Event(enable_timing=True) for _ in range(NUM_TIMING_ITERS)]
+    backward_end_events = [torch.cuda.Event(enable_timing=True) for _ in range(NUM_TIMING_ITERS)]
+    step_start_events = [torch.cuda.Event(enable_timing=True) for _ in range(NUM_TIMING_ITERS)]
+    step_end_events = [torch.cuda.Event(enable_timing=True) for _ in range(NUM_TIMING_ITERS)]
+    
     for step in range(NUM_TIMING_ITERS):
-        # Forward pass
-        start_event = torch.cuda.Event(enable_timing=True)
-        end_event = torch.cuda.Event(enable_timing=True)
+        torch.cuda.synchronize()
         
-        start_event.record()
+        # Forward pass
+        forward_start_events[step].record()
         (token_ids_cast,) = trainer.cast_inputs(token_ids)
         logits = trainer.forward(token_ids_cast)
         loss = torch.nn.functional.cross_entropy(
             logits.view(-1, model_config["vocab_size"]), targets.view(-1)
         )
-        end_event.record()
-        torch.cuda.synchronize()
-        forward_times.append(start_event.elapsed_time(end_event) / 1000.0)
+        forward_end_events[step].record()
         
         # Backward pass
-        start_event.record()
+        backward_start_events[step].record()
         trainer.backward(loss)
-        end_event.record()
-        torch.cuda.synchronize()
-        backward_times.append(start_event.elapsed_time(end_event) / 1000.0)
+        backward_end_events[step].record()
         
         # Optimizer step
-        start_event.record()
+        step_start_events[step].record()
         ok = trainer.step(check_overflow=True)
-        end_event.record()
+        step_end_events[step].record()
+        
         torch.cuda.synchronize()
-        step_times.append(start_event.elapsed_time(end_event) / 1000.0)
+    
+    # Calculate timings after all iterations complete
+    for step in range(NUM_TIMING_ITERS):
+        forward_times.append(forward_start_events[step].elapsed_time(forward_end_events[step]) / 1000.0)
+        backward_times.append(backward_start_events[step].elapsed_time(backward_end_events[step]) / 1000.0)
+        step_times.append(step_start_events[step].elapsed_time(step_end_events[step]) / 1000.0)
     
     avg_forward = sum(forward_times) / len(forward_times)
     avg_backward = sum(backward_times) / len(backward_times)
@@ -140,34 +149,43 @@ def benchmark_model(model_config, model_name, results_list):
     backward_times_offload = []
     step_times_offload = []
     
+    # Create all CUDA events upfront
+    forward_start_events_offload = [torch.cuda.Event(enable_timing=True) for _ in range(NUM_TIMING_ITERS)]
+    forward_end_events_offload = [torch.cuda.Event(enable_timing=True) for _ in range(NUM_TIMING_ITERS)]
+    backward_start_events_offload = [torch.cuda.Event(enable_timing=True) for _ in range(NUM_TIMING_ITERS)]
+    backward_end_events_offload = [torch.cuda.Event(enable_timing=True) for _ in range(NUM_TIMING_ITERS)]
+    step_start_events_offload = [torch.cuda.Event(enable_timing=True) for _ in range(NUM_TIMING_ITERS)]
+    step_end_events_offload = [torch.cuda.Event(enable_timing=True) for _ in range(NUM_TIMING_ITERS)]
+    
     for step in range(NUM_TIMING_ITERS):
-        # Forward pass
-        start_event = torch.cuda.Event(enable_timing=True)
-        end_event = torch.cuda.Event(enable_timing=True)
+        torch.cuda.synchronize()
         
-        start_event.record()
+        # Forward pass
+        forward_start_events_offload[step].record()
         (token_ids_cast,) = trainer_offload.cast_inputs(token_ids)
         logits = trainer_offload.forward(token_ids_cast)
         loss = torch.nn.functional.cross_entropy(
             logits.view(-1, model_config["vocab_size"]), targets.view(-1)
         )
-        end_event.record()
-        torch.cuda.synchronize()
-        forward_times_offload.append(start_event.elapsed_time(end_event) / 1000.0)
+        forward_end_events_offload[step].record()
         
         # Backward pass
-        start_event.record()
+        backward_start_events_offload[step].record()
         trainer_offload.backward(loss)
-        end_event.record()
-        torch.cuda.synchronize()
-        backward_times_offload.append(start_event.elapsed_time(end_event) / 1000.0)
+        backward_end_events_offload[step].record()
         
         # Optimizer step
-        start_event.record()
+        step_start_events_offload[step].record()
         ok = trainer_offload.step(check_overflow=True)
-        end_event.record()
+        step_end_events_offload[step].record()
+        
         torch.cuda.synchronize()
-        step_times_offload.append(start_event.elapsed_time(end_event) / 1000.0)
+    
+    # Calculate timings after all iterations complete
+    for step in range(NUM_TIMING_ITERS):
+        forward_times_offload.append(forward_start_events_offload[step].elapsed_time(forward_end_events_offload[step]) / 1000.0)
+        backward_times_offload.append(backward_start_events_offload[step].elapsed_time(backward_end_events_offload[step]) / 1000.0)
+        step_times_offload.append(step_start_events_offload[step].elapsed_time(step_end_events_offload[step]) / 1000.0)
     
     avg_forward_offload = sum(forward_times_offload) / len(forward_times_offload)
     avg_backward_offload = sum(backward_times_offload) / len(backward_times_offload)

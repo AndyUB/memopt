@@ -28,10 +28,10 @@ def make_data(batch_size, context_length, vocab_size, device="cpu"):
 
 def get_gpu_memory_stats():
     """Get current GPU memory usage statistics in GB."""
-    allocated = torch.cuda.memory_allocated() / 1024**3
-    reserved = torch.cuda.memory_reserved() / 1024**3
-    max_allocated = torch.cuda.max_memory_allocated() / 1024**3
-    max_reserved = torch.cuda.max_memory_reserved() / 1024**3
+    allocated = torch.cuda.memory_allocated() / 10**9
+    reserved = torch.cuda.memory_reserved() / 10**9
+    max_allocated = torch.cuda.max_memory_allocated() / 10**9
+    max_reserved = torch.cuda.max_memory_reserved() / 10**9
     return {
         'allocated': allocated,
         'reserved': reserved,
