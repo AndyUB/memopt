@@ -4,47 +4,12 @@ import torch
 
 from memopt.model.optimizer import AdamW
 from memopt.model.config import DEFAULT_ADAMW_ARGS
+from memopt.python.memopt.util import setup_master_params
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s %(name)s %(levelname)s %(message)s"
 )
 logger = logging.getLogger(__name__)
-
-
-def setup_master_params(
-    model: torch.nn.Module, device: torch.device
-) -> list[torch.Tensor]:
-    """
-    Create FP32 master copy of parameters.
-
-    Args:
-        model: The model whose parameters are to be copied.
-        device: The device to place the master parameters on.
-
-    Returns:
-        List of FP32 master parameters.
-    """
-    master_params = []
-    for param in model.parameters():
-        master_param = param.detach().clone().float().to(device)
-        master_param.requires_grad = param.requires_grad
-        master_params.append(master_param)
-    return master_params
-
-
-def assert_model_dtype(model: torch.nn.Module, dtype: torch.dtype) -> None:
-    """
-    Assert that all model parameters are of the specified dtype.
-
-    Args:
-        model: The model to check.
-        dtype: The expected data type.
-    """
-    for param in model.parameters():
-        if param.dtype != dtype:
-            raise ValueError(
-                f"Model parameter has dtype {param.dtype}, expected {dtype}."
-            )
 
 
 class MixedPrecisionTrainer:
@@ -95,7 +60,9 @@ class MixedPrecisionTrainer:
                 # handles casting internally. Keep model in FP32.
                 self.model_dtype = torch.float32
             else:
-                self.master_params = setup_master_params(model, device)
+                self.master_params = setup_master_params(
+                    model, device, dtype=torch.float32
+                )
         model.to(device=device, dtype=self.model_dtype)
 
         self.optimizer_dtype = (
