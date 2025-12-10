@@ -1,0 +1,18 @@
+Loading data from: latency_mixprec_benchmark_20251210_000349.csv
+Plot saved to: latency_mixprec_comparison.png
+
+============================================================
+LATENCY SUMMARY: FP32 vs Mixed Precision Configurations
+============================================================
+
+TRANSFORMER_SMALL:
+  Total latency FP32:       0.1484 sec
+  Total latency autocast:   0.1208 sec (1.23x)
+  Total latency no_master:  0.0935 sec (1.59x)
+  Total latency default:    0.1202 sec (1.24x)
+
+TRANSFORMER_LARGE:
+  Total latency FP32:       0.8948 sec
+  Total latency autocast:   0.5175 sec (1.73x)
+  Total latency no_master:  0.3397 sec (2.63x)
+  Total latency default:    0.4993 sec (1.79x)

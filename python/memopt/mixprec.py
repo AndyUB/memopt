@@ -194,6 +194,7 @@ class MixedPrecisionTrainer:
                     unscaled_grad = model_param.grad.float() / self.loss_scale
                 else:
                     unscaled_grad = model_param.grad.float()
+                model_param.grad = None  # Clear model grad to save memory
             master_param.grad = unscaled_grad
 
     @torch.no_grad()

@@ -1,0 +1,123 @@
+Benchmarking Transformer models: FP32 vs FP16 Mixed Precision Configurations
+Device: cuda
+
+============================================================
+Benchmarking TRANSFORMER_SMALL
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 12, 'd_model': 768, 'num_heads': 12, 'd_ff': 3072}
+Context length: 256, Batch size: 4
+
+============================================================
+FP32 Training (No Mixed Precision)
+============================================================
+Warming up for 3 iterations...
+Timing FP32 (5 iterations)...
+FP32 breakdown (average per iteration):
+  Forward:   0.0340 seconds (22.9%)
+  Backward:  0.0720 seconds (48.5%)
+  Optimizer: 0.0424 seconds (28.6%)
+  Total:     0.1484 seconds
+
+============================================================
+FP16 Training (autocast)
+============================================================
+Warming up for 3 iterations...
+Timing FP16 (autocast) (5 iterations)...
+FP16 (autocast) breakdown (average per iteration):
+  Forward:   0.0280 seconds (23.2%)
+  Backward:  0.0502 seconds (41.5%)
+  Optimizer: 0.0426 seconds (35.2%)
+  Total:     0.1208 seconds
+
+============================================================
+FP16 Training (no master)
+============================================================
+Warming up for 3 iterations...
+Timing FP16 (no master) (5 iterations)...
+FP16 (no master) breakdown (average per iteration):
+  Forward:   0.0258 seconds (27.6%)
+  Backward:  0.0460 seconds (49.2%)
+  Optimizer: 0.0218 seconds (23.3%)
+  Total:     0.0935 seconds
+
+============================================================
+FP16 Training (default)
+============================================================
+Warming up for 3 iterations...
+Timing FP16 (default) (5 iterations)...
+FP16 (default) breakdown (average per iteration):
+  Forward:   0.0258 seconds (21.5%)
+  Backward:  0.0459 seconds (38.2%)
+  Optimizer: 0.0484 seconds (40.3%)
+  Total:     0.1202 seconds
+
+============================================================
+Comparison Summary:
+============================================================
+Total time FP32:       0.1484 sec
+Total time autocast:   0.1208 sec (1.23x)
+Total time no_master:  0.0935 sec (1.59x)
+Total time default:    0.1202 sec (1.24x)
+
+============================================================
+Benchmarking TRANSFORMER_LARGE
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 36, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}
+Context length: 256, Batch size: 4
+
+============================================================
+FP32 Training (No Mixed Precision)
+============================================================
+Warming up for 3 iterations...
+Timing FP32 (5 iterations)...
+FP32 breakdown (average per iteration):
+  Forward:   0.2059 seconds (23.0%)
+  Backward:  0.4413 seconds (49.3%)
+  Optimizer: 0.2475 seconds (27.7%)
+  Total:     0.8948 seconds
+
+============================================================
+FP16 Training (autocast)
+============================================================
+Warming up for 3 iterations...
+Timing FP16 (autocast) (5 iterations)...
+FP16 (autocast) breakdown (average per iteration):
+  Forward:   0.0839 seconds (16.2%)
+  Backward:  0.1860 seconds (35.9%)
+  Optimizer: 0.2477 seconds (47.9%)
+  Total:     0.5175 seconds
+
+============================================================
+FP16 Training (no master)
+============================================================
+Warming up for 3 iterations...
+Timing FP16 (no master) (5 iterations)...
+FP16 (no master) breakdown (average per iteration):
+  Forward:   0.0739 seconds (21.8%)
+  Backward:  0.1454 seconds (42.8%)
+  Optimizer: 0.1203 seconds (35.4%)
+  Total:     0.3397 seconds
+
+============================================================
+FP16 Training (default)
+============================================================
+Warming up for 3 iterations...
+Timing FP16 (default) (5 iterations)...
+FP16 (default) breakdown (average per iteration):
+  Forward:   0.0739 seconds (14.8%)
+  Backward:  0.1470 seconds (29.4%)
+  Optimizer: 0.2783 seconds (55.7%)
+  Total:     0.4993 seconds
+
+============================================================
+Comparison Summary:
+============================================================
+Total time FP32:       0.8948 sec
+Total time autocast:   0.5175 sec (1.73x)
+Total time no_master:  0.3397 sec (2.63x)
+Total time default:    0.4993 sec (1.79x)
+
+============================================================
+Results exported to: results/latency_mixprec_benchmark_20251210_000349.csv
+============================================================
+============================================================
