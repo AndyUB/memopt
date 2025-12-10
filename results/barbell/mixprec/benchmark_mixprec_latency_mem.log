@@ -1,0 +1,131 @@
+Benchmarking Transformer models: FP32 vs FP16 Mixed Precision Configurations
+Device: cuda
+
+============================================================
+Benchmarking TRANSFORMER_SMALL
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 12, 'd_model': 768, 'num_heads': 12, 'd_ff': 3072}
+Context length: 256, Batch size: 4
+
+============================================================
+FP32 Training (No Mixed Precision)
+============================================================
+Warming up for 3 iterations...
+Timing FP32 (5 iterations)...
+FP32 breakdown (average per iteration):
+  Forward:   0.0337 seconds (22.7%)
+  Backward:  0.0725 seconds (48.8%)
+  Optimizer: 0.0424 seconds (28.6%)
+  Total:     0.1486 seconds
+FP32 memory: init=MemoryStats(curr_allocated_bytes=0, curr_reserved_bytes=0, max_allocated_bytes=0, max_reserved_bytes=0), peak=MemoryStats(curr_allocated_bytes=2550112768, curr_reserved_bytes=5045747712, max_allocated_bytes=4621034496, max_reserved_bytes=5045747712)
+
+============================================================
+FP16 Training (autocast)
+============================================================
+Warming up for 3 iterations...
+Timing FP16 (autocast) (5 iterations)...
+FP16 (autocast) breakdown (average per iteration):
+  Forward:   0.0281 seconds (23.2%)
+  Backward:  0.0503 seconds (41.6%)
+  Optimizer: 0.0425 seconds (35.2%)
+  Total:     0.1209 seconds
+FP16 (autocast) memory: init=MemoryStats(curr_allocated_bytes=17055744, curr_reserved_bytes=44040192, max_allocated_bytes=2550112768, max_reserved_bytes=5045747712), peak=MemoryStats(curr_allocated_bytes=2315437056, curr_reserved_bytes=4729077760, max_allocated_bytes=4012836352, max_reserved_bytes=4729077760)
+
+============================================================
+FP16 Training (no master)
+============================================================
+Warming up for 3 iterations...
+Timing FP16 (no master) (5 iterations)...
+FP16 (no master) breakdown (average per iteration):
+  Forward:   0.0258 seconds (27.6%)
+  Backward:  0.0460 seconds (49.1%)
+  Optimizer: 0.0218 seconds (23.3%)
+  Total:     0.0935 seconds
+FP16 (no master) memory: init=MemoryStats(curr_allocated_bytes=17055744, curr_reserved_bytes=44040192, max_allocated_bytes=2315437056, max_reserved_bytes=4729077760), peak=MemoryStats(curr_allocated_bytes=1197362688, curr_reserved_bytes=2610954240, max_allocated_bytes=2422225920, max_reserved_bytes=2610954240)
+
+============================================================
+FP16 Training (default)
+============================================================
+Warming up for 3 iterations...
+Timing FP16 (default) (5 iterations)...
+FP16 (default) breakdown (average per iteration):
+  Forward:   0.0258 seconds (21.5%)
+  Backward:  0.0460 seconds (38.2%)
+  Optimizer: 0.0484 seconds (40.3%)
+  Total:     0.1202 seconds
+FP16 (default) memory: init=MemoryStats(curr_allocated_bytes=17055744, curr_reserved_bytes=44040192, max_allocated_bytes=1197362688, max_reserved_bytes=2610954240), peak=MemoryStats(curr_allocated_bytes=2731458560, curr_reserved_bytes=4640997376, max_allocated_bytes=4074012160, max_reserved_bytes=4640997376)
+
+============================================================
+Comparison Summary:
+============================================================
+Total time FP32:       0.1486 sec
+Total time autocast:   0.1209 sec (1.23x)
+Total time no_master:  0.0935 sec (1.59x)
+Total time default:    0.1202 sec (1.24x)
+
+============================================================
+Benchmarking TRANSFORMER_LARGE
+============================================================
+Config: {'vocab_size': 50257, 'num_layers': 36, 'd_model': 1280, 'num_heads': 20, 'd_ff': 5120}
+Context length: 256, Batch size: 4
+
+============================================================
+FP32 Training (No Mixed Precision)
+============================================================
+Warming up for 3 iterations...
+Timing FP32 (5 iterations)...
+FP32 breakdown (average per iteration):
+  Forward:   0.2058 seconds (23.0%)
+  Backward:  0.4403 seconds (49.3%)
+  Optimizer: 0.2476 seconds (27.7%)
+  Total:     0.8936 seconds
+FP32 memory: init=MemoryStats(curr_allocated_bytes=17039360, curr_reserved_bytes=44040192, max_allocated_bytes=2731458560, max_reserved_bytes=4640997376), peak=MemoryStats(curr_allocated_bytes=13407841792, curr_reserved_bytes=23523753984, max_allocated_bytes=21308780544, max_reserved_bytes=23523753984)
+
+============================================================
+FP16 Training (autocast)
+============================================================
+Warming up for 3 iterations...
+Timing FP16 (autocast) (5 iterations)...
+FP16 (autocast) breakdown (average per iteration):
+  Forward:   0.0839 seconds (16.2%)
+  Backward:  0.1859 seconds (35.9%)
+  Optimizer: 0.2476 seconds (47.8%)
+  Total:     0.5174 seconds
+FP16 (autocast) memory: init=MemoryStats(curr_allocated_bytes=17055744, curr_reserved_bytes=44040192, max_allocated_bytes=13407841792, max_reserved_bytes=23523753984), peak=MemoryStats(curr_allocated_bytes=13201988608, curr_reserved_bytes=23225958400, max_allocated_bytes=20483844096, max_reserved_bytes=23225958400)
+
+============================================================
+FP16 Training (no master)
+============================================================
+Warming up for 3 iterations...
+Timing FP16 (no master) (5 iterations)...
+FP16 (no master) breakdown (average per iteration):
+  Forward:   0.0741 seconds (21.8%)
+  Backward:  0.1461 seconds (42.9%)
+  Optimizer: 0.1203 seconds (35.3%)
+  Total:     0.3405 seconds
+FP16 (no master) memory: init=MemoryStats(curr_allocated_bytes=17055744, curr_reserved_bytes=44040192, max_allocated_bytes=13201988608, max_reserved_bytes=23225958400), peak=MemoryStats(curr_allocated_bytes=6579309056, curr_reserved_bytes=11989417984, max_allocated_bytes=11026332672, max_reserved_bytes=11989417984)
+
+============================================================
+FP16 Training (default)
+============================================================
+Warming up for 3 iterations...
+Timing FP16 (default) (5 iterations)...
+FP16 (default) breakdown (average per iteration):
+  Forward:   0.0739 seconds (14.8%)
+  Backward:  0.1468 seconds (29.4%)
+  Optimizer: 0.2783 seconds (55.8%)
+  Total:     0.4990 seconds
+FP16 (default) memory: init=MemoryStats(curr_allocated_bytes=17055744, curr_reserved_bytes=44040192, max_allocated_bytes=6579309056, max_reserved_bytes=11989417984), peak=MemoryStats(curr_allocated_bytes=15424489984, curr_reserved_bytes=22194159616, max_allocated_bytes=20690718720, max_reserved_bytes=22194159616)
+
+============================================================
+Comparison Summary:
+============================================================
+Total time FP32:       0.8936 sec
+Total time autocast:   0.5174 sec (1.73x)
+Total time no_master:  0.3405 sec (2.62x)
+Total time default:    0.4990 sec (1.79x)
+
+============================================================
+Results exported to: results/latency_mixprec_benchmark_20251210_144330.csv
+============================================================
+============================================================

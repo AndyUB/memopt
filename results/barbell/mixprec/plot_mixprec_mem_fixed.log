@@ -1,0 +1,18 @@
+Loading data from: memory_mixprec_benchmark_20251210_144330.csv
+Plot saved to: memory_mixprec_comparison.png
+
+============================================================
+MEMORY SUMMARY: FP32 vs Mixed Precision Configurations
+============================================================
+
+TRANSFORMER_SMALL:
+  Peak memory FP32:        4.621 GB
+  Peak memory autocast:    4.013 GB (13.2% saved)
+  Peak memory no_master:   2.422 GB (47.6% saved)
+  Peak memory default:     4.074 GB (11.8% saved)
+
+TRANSFORMER_LARGE:
+  Peak memory FP32:        21.309 GB
+  Peak memory autocast:    20.484 GB (3.9% saved)
+  Peak memory no_master:   11.026 GB (48.3% saved)
+  Peak memory default:     20.691 GB (2.9% saved)
