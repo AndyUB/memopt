@@ -555,20 +555,6 @@ class Transformer(torch.nn.Module):
         self.lm_head = Linear(d_model, vocab_size, device=device, dtype=dtype)
 
     def forward(self, token_ids: torch.Tensor) -> torch.Tensor:
-        """
-        Apply the Transformer model to an input tensor of token IDs with
-        shape (batch_size, seq_len) and return logits of shape
-        (batch_size, seq_len, vocab_size).
-
-        Args:
-            token_ids (torch.Tensor): Input tensor of token IDs
-                with shape (batch_size, seq_len).
-
-        Returns:
-            torch.Tensor: Logits tensor of shape
-                (batch_size, seq_len, vocab_size).
-        """
-
         x = self.token_embeddings(token_ids)  # (batch_size, seq_len, d_model)
         for layer in self.layers:
             x = layer(x)
